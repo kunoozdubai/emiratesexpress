@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, EmiratesExpressActivity!</string>
+    <string name="app_name">Emirates Express</string>
+
+    <string name="main_screen_title">Emirates Express</string>
+    <string name="login_screen_title">Login</string>
+    <string name="about_us_screen_title">About Us</string>
+    <string name="services_screen_title">Services</string>
+    <string name="register_screen_title">Register</string>
+    <string name="contact_us_screen_title">Contact Us</string>
+    <string name="account_screen_title">Account</string>
+    <string name="login_remember_me">Remember Me</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_caps">LOGIN</string>
+    <string name="register_caps">REGISTER</string>
+    <string name="username">username</string>
+    <string name="password">Password</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="company_name">Company Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="name">Name</string>
+    <string name="name_in_arabic">Name in Arabic</string>
+    <string name="signout">Sign Out</string>
+    <string name="track_application_btn">Track Application</string>
+    <string name="about_us_desc_en">Established in 2006, Emirates Express Documents Clearing Company was the first accredited national company in the field of tracking and clearing documents, operating under the certified annual contracts system and providing “Public Relations Officer” service through a dedicated team of Emirati PROs.\n\nEmirates Express Documents Clearing Company is member of Emirates Express Group-Dubai which comprises a number of companies that aim to stimulate and activate a diversified economy in the United Arab Emirates and to render integrated services which enhance the efficiency of corporate performance and success.
+	</string>
+	
+    <string name="services_businessmen_title_en">Businessmen Services</string>
+	<string name="services_businessmen_desc_en">Services that provide businessmen the secretarial services and edit the records of the meetings for their business, as well as managing some of their own affairs such as organizing their appointments, and arrange meetings with other parties, in addition, arranging travel reservations, and moving to air planes or cars or stay in hotels and others.\n\nPlus, establishing companies and institutions to them, and do all the other businesses on the drafting of contracts, and contracts for establishment of private and public agencies, and other agencies.
+	</string>
+	
+	<string name="services_documents_clearing_title_en">Document Clearing Services</string>
+	<string name="services_documents_clearing_desc_en">Services for institutions and companies that operate in the preparation of documents, and document business and personal transactions for third party and complete the required details and submitted through the service of (Public Relations Officer) to ministries, departments, agencies, federal government institutions, and non-governmental institutions, by follow-up and completing them to those parties until the completion of related procedures.
+	</string>
+	
+	<string name="services_typing_title_en">Typing Services</string>
+	<string name="services_typing_desc_en">Typing all the required applications from government and semi-governmental and other agencies, including the required application from the Ministry of Labour, the General Directorate of Residency and Foreigners Affairs, Department of Economic Development, Department of Tourism and Commerce Marketing, Dubai Chamber of Commerce, Dubai Municipality, Ministry of Foreign Affairs, General Headquarter of Dubai Police, Dubai Traffic Department, Ministry of Education, Emirates Post offices, Ministry of Economy and Commerce, Dubai Customs, General Pensions &amp; Social Security Authority, Roads and Transport Authority, Ministry of Health, Dubai Health Authority, Dubai Electricity and Water Authority, Emirates Telecommunications Corporation - Etisalat, Real Estate Regulatory Agency, and other agencies.</string>
+	
+	<string name="services_photocopying_title_en">Photocopying Services</string>
+	<string name="services_photocopying_desc_en">Services of preparing additional copies of documents in different kinds, whether printed or recorded on audio tapes or video or on the films or was in the form of photographs, and whether it is done through the use of specialized enterprises in Printing, recording, copying, or the use of their own equipments.
+	</string>
+	
+	<string name="services_translation_title_en">Translation Services</string>
+	<string name="services_translation_desc_en">Regular and simple Translation services for personal and commercial editors. In addition, carrying out the provision of services related to translation, such as proofreading, typing, photocopying documents by the competent authorities, as well as legal translation services that afforded by office-based clients with our offices through cooperation between us.
+	</string>
+    
+	<string name="services_vehicles_regisration_title_en">Vehicles Registration Services</string>
+	<string name="services_vehicles_regisration_desc_en">Services to individuals or companies to register their cars and vehicles to the competent authorities and traffic departments, including checking of vehicles in specialized workshops and completing the procedures for registering property and paying fees.
+	</string>
+	
+	<string name="services_car_embarkation_title_en">Car Embarkation Services</string>
+	<string name="services_car_embarkation_desc_en">Includes offices that will operate on the issuance of papers and necessary documents for driving personal cars outside the country or for shipment or has passed the international border by such as issuing international driving licenses and the issuance of tickets for freight cars and the books of international traffic (Trip Ticket) in accordance with the AIT / FIA.
+	</string>
+        
+    
+</resources>
