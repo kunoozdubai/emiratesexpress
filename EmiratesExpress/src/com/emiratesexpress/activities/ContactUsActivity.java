@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.emiratesexpress.R;
+import com.emiratesexpress.asynctask.DataDownloadTask;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
-import com.uaemerchant.asynctask.DataDownloadTask;
 
 public class ContactUsActivity extends Activity implements View.OnClickListener {
 

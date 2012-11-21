@@ -14,14 +14,14 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.emiratesexpress.R;
+import com.emiratesexpress.asynctask.DataDownloadTask;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
+import com.emiratesexpress.network.Parser;
 import com.emiratesexpress.pojos.User;
-import com.uaemerchant.asynctask.DataDownloadTask;
-import com.uaemerchant.network.Parser;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 

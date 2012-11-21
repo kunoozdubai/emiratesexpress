@@ -4,7 +4,6 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,13 +13,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.emiratesexpress.R;
+import com.emiratesexpress.asynctask.DataDownloadTask;
 import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
+import com.emiratesexpress.network.Parser;
 import com.emiratesexpress.pojos.User;
-import com.uaemerchant.asynctask.DataDownloadTask;
-import com.uaemerchant.network.Parser;
 
 public class RegisterActivity extends Activity implements OnClickListener {
 

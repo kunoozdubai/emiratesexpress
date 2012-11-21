@@ -1,4 +1,4 @@
-package com.uaemerchant.network;
+package com.emiratesexpress.network;
 
 import org.json.JSONException;
 import org.json.JSONObject;

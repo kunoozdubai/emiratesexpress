@@ -4,11 +4,9 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,7 +18,6 @@ import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.pojos.User;
-import com.uaemerchant.asynctask.DataDownloadTask;
 
 public class AccountActivity extends Activity implements View.OnClickListener {
 

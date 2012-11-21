@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.emiratesexpress.R;
-import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Utilities;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;

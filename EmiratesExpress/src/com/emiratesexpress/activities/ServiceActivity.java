@@ -3,7 +3,6 @@ package com.emiratesexpress.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.EventLogTags.Description;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;

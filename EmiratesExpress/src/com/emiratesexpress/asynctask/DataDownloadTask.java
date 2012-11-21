@@ -1,6 +1,5 @@
-package com.uaemerchant.asynctask;
+package com.emiratesexpress.asynctask;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -8,7 +7,7 @@ import android.os.AsyncTask;
 
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.Utilities;
-import com.uaemerchant.network.JSONfunctions;
+import com.emiratesexpress.network.JSONfunctions;
 
 
 public class DataDownloadTask extends AsyncTask<Void, Void, Void> {

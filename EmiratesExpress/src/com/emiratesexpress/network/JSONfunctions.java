@@ -1,4 +1,4 @@
-package com.uaemerchant.network;
+package com.emiratesexpress.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
