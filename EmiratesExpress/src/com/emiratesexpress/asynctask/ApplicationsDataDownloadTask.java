@@ -1,5 +1,6 @@
 package com.emiratesexpress.asynctask;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -10,7 +11,7 @@ import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.network.JSONfunctions;
 
 
-public class DataDownloadTask extends AsyncTask<Void, Void, Void> {
+public class ApplicationsDataDownloadTask extends AsyncTask<Void, Void, Void> {
 
 	private Context context;
 	private IResponseListener responseListener;
@@ -19,7 +20,7 @@ public class DataDownloadTask extends AsyncTask<Void, Void, Void> {
 	String postData;
 	
 	
-	public DataDownloadTask(Context ctx, IResponseListener iResponseListener, String requestURL, String postData){
+	public ApplicationsDataDownloadTask(Context ctx, IResponseListener iResponseListener, String requestURL, String postData){
 		context = ctx;
 		responseListener = iResponseListener;
 		this.requestURL = requestURL;
@@ -43,20 +44,23 @@ public class DataDownloadTask extends AsyncTask<Void, Void, Void> {
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
 		if(jsonObject != null && jsonObject.length() > 0 ){
-			if(!jsonObject.has("ERROR")){
-				responseListener.onSuccess(jsonObject);
-			}else{
-				responseListener.onError(jsonObject);
-			}
-//				String error = jsonObject.getString("ERROR");
-//				if(Utilities.isStringEmptyOrNull(error)){
-//					responseListener.onSuccess(jsonObject);
-//				}else{
-//					responseListener.onError(jsonObject);
-//				}
-			
+			int results = 0; 
+				if(!jsonObject.isNull("results")){
+					try {
+						results = Integer.parseInt(jsonObject.getString("results"));
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+				if(results > 0){
+					responseListener.onSuccess(jsonObject);
+				}else{
+					responseListener.onError(jsonObject);
+				}
 		}else{
-			responseListener.onError(null);
+			responseListener.onError(jsonObject);
 		}
 		Utilities.cancelprogressDialog();
 	}

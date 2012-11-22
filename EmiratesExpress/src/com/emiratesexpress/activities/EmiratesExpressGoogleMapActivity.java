@@ -25,9 +25,9 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity {
 
 	private Context context;
 	private MapView mapView;
-
-	private static final double latitudeE6 = 25; // 25269700
-	private static final double longitudeE6 = 55; // 55309500
+	//25.215019, 55.374878
+	private static final double latitudeE6 = 25.215019; // 25269700
+	private static final double longitudeE6 = 55.374878; // 55309500
 	
 	
 	

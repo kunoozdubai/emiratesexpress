@@ -39,6 +39,20 @@ public class NetworkConstants {
 	public static String USER_TYPE = "userType";
 	public static String MOBILE = "mobile";
 	
+	public static String TRANS_ID = "transId";
+	public static String TRANS_TYPE_ID = "transTypeId";
+	public static String DESCRIPTION = "description";
+	public static String SERVICE_FEE = "serviceFee";
+	public static String GOVT_FEE = "govtFee";
+	public static String DEBIT = "debit";
+	public static String OLD_BALANCE = "oldBalance";
+	public static String POSTED = "posted";
+	public static String COMMENTS = "comments";
+	public static String AUTHORITY = "authority";
+	public static String AUTHORITY_AR = "authority_ar";
+	public static String TRANSACTION = "transaction";
+	public static String DATE_POSTED = "dateposted";
+	
 	
 
 }

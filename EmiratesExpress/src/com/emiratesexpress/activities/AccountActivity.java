@@ -3,8 +3,15 @@ package com.emiratesexpress.activities;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.content.DialogInterface.OnKeyListener;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,11 +30,14 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 	private Context context;
 	private RelativeLayout accoutDetailParent;
+	private Button signOutBtn;
+	
+	private Builder alertBuilder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.account);
+		setContentView(R.layout.account); 
 		context = this;
 
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
@@ -37,20 +47,32 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
-		button = (Button) findViewById(R.id.signOutBtn);
-		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.trackApplicationBtn);
 		button.setOnClickListener(this);
+		
+		signOutBtn = (Button) findViewById(R.id.signOutBtn);
+		signOutBtn.setOnClickListener(this);
+		signOutBtn.setVisibility(View.GONE);
+		
+//		if(Configurations.user == null || Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
+//			showLoginRegisterDialog();
+//		}
 
 	}
 
 	
 	@Override
-	protected void onResume() {
-		
-		if(!Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
-			showUserAccountDetail();
+	protected void onResume(){ 
+		if(Configurations.user != null){
+			if(!Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
+				showUserAccountDetail();
+			}else{
+				showLoginRegisterDialog();
+			}
+		}else{
+			showLoginRegisterDialog();
 		}
+		
 	
 		super.onResume();
 	}
@@ -63,6 +85,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 		textView.setText(user.getUsername());
 		textView = (TextView) findViewById(R.id.emailText);
 		textView.setText(user.getEmail());
+		signOutBtn.setVisibility(View.VISIBLE);
 		
 	}
 
@@ -73,10 +96,13 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 		if (id == R.id.backBtn) {
 			finish();
 		} else if(id == R.id.signOutBtn){
+			Configurations.user.setUserId("");
 			Configurations.user = null;
-			
+			Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, "");
 			finish();
 		} else if (id == R.id.trackApplicationBtn) {
+			Intent intent = new Intent(context, ApplicationsListActivity.class);
+			startActivity(intent);
 		}
 	}
 
@@ -123,4 +149,47 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 		super.onDestroy();
 	}
+	
+	private void showLoginRegisterDialog() {
+		alertBuilder = new Builder(context);
+
+		alertBuilder.setTitle("");
+		alertBuilder.setMessage("Account");
+		
+		alertBuilder.setPositiveButton("Login", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Intent intent = new Intent(context, LoginActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		alertBuilder.setNegativeButton("Register", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Intent intent = new Intent(context, RegisterActivity.class);
+				startActivity(intent);
+			}
+		});
+		alertBuilder.setOnKeyListener(backKeylistener);
+		alertBuilder.create().show();
+	}
+	
+	private OnKeyListener backKeylistener = new OnKeyListener() {
+
+		@Override
+		public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+			if (keyCode == KeyEvent.KEYCODE_SEARCH || keyCode == KeyEvent.KEYCODE_MENU) {
+				return true;
+			}
+			if (keyCode == KeyEvent.KEYCODE_BACK && (event.getAction() == KeyEvent.ACTION_DOWN)) {
+				alertBuilder.create().cancel();
+				finish();
+				return true;
+			}
+
+			return false;
+		}
+	};
+
 }

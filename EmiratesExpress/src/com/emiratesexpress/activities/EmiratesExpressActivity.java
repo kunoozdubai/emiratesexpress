@@ -64,7 +64,7 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.howToBtn){
 			
 		}else if(id == R.id.loginRegisterBtn){
-			Intent intent = new Intent(context, LoginActivity.class);
+			Intent intent = new Intent(context, AccountActivity.class);
 			startActivity(intent);
 			
 		}else if(id == R.id.contactUsBtn){

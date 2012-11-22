@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -42,9 +43,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         button.setOnClickListener(this);
         button = (Button) findViewById(R.id.loginBtn);
         button.setOnClickListener(this);
-//        button = (Button) findViewById(R.id.registerBtn);
-//        button.setOnClickListener(this);
         
+        boolean isRemember = Utilities.getBooleanValuesFromPreference(context, CommonConstants.REMEMBER_ME, false);
+        if(isRemember){
+        	ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
+        	rememberMe.setChecked(true);
+        	EditText user = (EditText) findViewById(R.id.username);
+        	username = Utilities.getStringValuesFromPreference(context, CommonConstants.USERNAME, "");
+        	user.setText(username);
+        	EditText pass = (EditText) findViewById(R.id.password);
+        	password = Utilities.getStringValuesFromPreference(context, CommonConstants.PASSWORD, "");
+        	pass.setText(password);
+        }
+
         
     }
 
@@ -109,8 +120,15 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
 				Toast.makeText(context, "Registration Successful " + user.getUserId(), Toast.LENGTH_SHORT).show();
 				ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
-				boolean isRemember = rememberMe.isEnabled(); 
+				boolean isRemember = rememberMe.isChecked(); 
 				Utilities.setBooleanValuesToPreferences(context, CommonConstants.REMEMBER_ME, isRemember);
+				if(isRemember){
+					Utilities.setStringValuesToPreferences(context, CommonConstants.USERNAME, username);
+					Utilities.setStringValuesToPreferences(context, CommonConstants.PASSWORD, password);
+				}else{
+					Utilities.setStringValuesToPreferences(context, CommonConstants.USERNAME, "");
+					Utilities.setStringValuesToPreferences(context, CommonConstants.PASSWORD, "");
+				}
 				finish();
 			} else {
 				Toast.makeText(context, "Registration Failed", Toast.LENGTH_SHORT).show();
