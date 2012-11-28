@@ -59,7 +59,7 @@
             />
         
         
-        <Button
+        <!-- <Button
             android:id="@+id/howToBtn"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
@@ -67,7 +67,7 @@
             android:background="@drawable/howto"
             android:layout_marginTop="5dp"
             android:layout_below="@id/servicesBtn"
-            />
+            /> -->
         
         
         <Button
@@ -77,7 +77,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/login_register"
             android:layout_marginTop="5dp"
-            android:layout_below="@id/howToBtn"
+            android:layout_below="@id/servicesBtn"
             />
         
         <Button

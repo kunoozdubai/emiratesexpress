@@ -45,8 +45,8 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
         button.setOnClickListener(this);
         button = (Button) findViewById(R.id.servicesBtn);
         button.setOnClickListener(this);
-        button = (Button) findViewById(R.id.howToBtn);
-        button.setOnClickListener(this);
+//        button = (Button) findViewById(R.id.howToBtn);
+//        button.setOnClickListener(this);
         button = (Button) findViewById(R.id.contactUsBtn);
         button.setOnClickListener(this);
         
@@ -61,12 +61,9 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.servicesBtn){
 			Intent intent = new Intent(context, ServiceActivity.class);
 			startActivity(intent);
-		}else if(id == R.id.howToBtn){
-			
 		}else if(id == R.id.loginRegisterBtn){
 			Intent intent = new Intent(context, AccountActivity.class);
 			startActivity(intent);
-			
 		}else if(id == R.id.contactUsBtn){
 			Intent intent = new Intent(context, ContactUsActivity.class);
 			startActivity(intent);

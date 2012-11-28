@@ -11,6 +11,7 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
@@ -21,7 +22,7 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
-public class EmiratesExpressGoogleMapActivity extends MapActivity {
+public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnClickListener {
 
 	private Context context;
 	private MapView mapView;
@@ -41,6 +42,9 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity {
 		
 		mapView = (MapView) findViewById(R.id.map_view);
 		mapView.setBuiltInZoomControls(true);
+		
+		Button button = (Button) findViewById(R.id.backBtn);
+		button.setOnClickListener(this);
 
 		List<Overlay> mapOverlays = mapView.getOverlays();
 		Drawable drawable = this.getResources().getDrawable(R.drawable.marker);
@@ -70,7 +74,6 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity {
 			MapController mapController = mapView.getController();
 			mapController.animateTo(point);
 			mapController.setZoom(6);
-
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,18 +90,6 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity {
 		// mapController.setZoom(6);
 	}
 
-	private OnClickListener clickListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()) {
-		
-			default:
-				break;
-			}
-		}
-	};
-	
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
@@ -115,6 +106,15 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity {
 		Utilities.unbindDrawables(findViewById(R.id.location_activity));
 		System.gc();
 		super.onDestroy();
+	}
+
+	@Override
+	public void onClick(View v) {
+		int id = v.getId();
+		if(id == R.id.backBtn){
+			finish();
+		}
+		
 	}
 
 }
