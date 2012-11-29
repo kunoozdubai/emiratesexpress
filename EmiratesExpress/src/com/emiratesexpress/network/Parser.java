@@ -39,6 +39,7 @@ public class Parser {
 		String userType = "";
 		String created = "";
 		String mobile = "";
+		String company = "";
 
 		try {
 			if (!response.isNull(NetworkConstants.USERID)) {
@@ -71,7 +72,10 @@ public class Parser {
 			if (!response.isNull(NetworkConstants.MOBILE)) {
 				mobile = response.getString(NetworkConstants.MOBILE);
 			}
-			user = new User(userId, name, nameArabic, username, password, email, status, userType, created, mobile);
+			if (!response.isNull(NetworkConstants.COMPANY)) {
+				company = response.getString(NetworkConstants.COMPANY);
+			}
+			user = new User(userId, name, nameArabic, username, password, email, status, userType, created, mobile, company);
 
 		} catch (JSONException e) {
 			e.printStackTrace();

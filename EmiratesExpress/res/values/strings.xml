@@ -21,21 +21,21 @@
     <string name="username">username</string>
     <string name="password">Password</string>
     <string name="re_enter_password">Re-enter Password</string>
-    <string name="company_name">Company Name</string>
-    <string name="email_address">Email Address</string>
-    <string name="name">Name</string>
+    <string name="company_name">COMPANY</string>
+    <string name="email_address">EMAIl</string>
+    <string name="name">NAME</string>
     <string name="name_in_arabic">Name in Arabic</string>
-    <string name="signout">Sign Out</string>
+    <string name="logout">Logout</string>
     
-    <string name="authority_text">Authority</string>
-    <string name="status_text">Status</string>
-    <string name="service_fee_text">Service Fee</string>
-    <string name="govt_fee_text">Govt Fee</string>
-    <string name="debit_text">Debit</string>
-    <string name="old_balance_text">Old Balance</string>
+    <string name="authority_text">Authority:</string>
+    <string name="status_text">Status:</string>
+    <string name="service_fee_text">Service Fee:</string>
+    <string name="govt_fee_text">Govt Fee:</string>
+    <string name="debit_text">Debit:</string>
+    <string name="old_balance_text">Old Balance:</string>
     <string name="comments_text">Comments</string>
     <string name="description_text">Description</string>
-    
+    <string name="read_more_btn">Read More</string>
     
     <string name="track_application_btn">Track Application</string>
     <string name="about_us_desc_en">Established in 2006, Emirates Express Documents Clearing Company was the first accredited national company in the field of tracking and clearing documents, operating under the certified annual contracts system and providing “Public Relations Officer” service through a dedicated team of Emirati PROs.\n\nEmirates Express Documents Clearing Company is member of Emirates Express Group-Dubai which comprises a number of companies that aim to stimulate and activate a diversified economy in the United Arab Emirates and to render integrated services which enhance the efficiency of corporate performance and success.

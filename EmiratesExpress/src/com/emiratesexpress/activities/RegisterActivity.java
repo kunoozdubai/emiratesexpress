@@ -150,7 +150,7 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			if (!Utilities.isStringEmptyOrNull(userId)) {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
 				Toast.makeText(context, "Registration Successful " + userId, Toast.LENGTH_SHORT).show();
-				User user = new User(userId, name, nameArabic, username, password, emailAddress, "", "", "", "");
+				User user = new User(userId, name, nameArabic, username, password, emailAddress, "", "", "", "",companyName);
 				Configurations.user = user;
 				finish();
 			} else {

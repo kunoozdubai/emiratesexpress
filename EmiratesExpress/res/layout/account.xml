@@ -40,14 +40,14 @@
         <Button
             android:id="@+id/signOutBtn"
             android:layout_width="60dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
-            android:background="@drawable/btnbg"
-            android:text="@string/signout"
-            android:textColor="@android:color/black" />
+            android:background="@drawable/barbtn"
+            android:text="@string/logout"
+            android:textColor="@android:color/white" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -60,43 +60,117 @@
             android:id="@+id/accountDetailParent"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="20dp" 
-            android:visibility="gone">
+            android:layout_marginTop="20dp"
+            android:visibility="gone" >
 
-            <TextView
-                android:id="@+id/nameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="" />
+            <RelativeLayout
+                android:id="@+id/block1"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/usernameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/nameText"
-                android:layout_marginLeft="10dp"
+                <TextView
+                    android:id="@+id/nameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/name"
+                    android:textColor="#FF0000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/nameText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/nameText"
+                    android:text=""
+                    android:textColor="#68676A"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block2"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/block1"
                 android:layout_marginTop="10dp"
-                android:text="" />
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/emailText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/usernameText"
-                android:layout_marginLeft="10dp"
+                <TextView
+                    android:id="@+id/companyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/company_name"
+                    android:textColor="#FF0000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/companyText"
+                    android:layout_toRightOf="@id/companyText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textColor="#68676A"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/block3"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/block2"
                 android:layout_marginTop="10dp"
-                android:text="" />
-            
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
+
+                <TextView
+                    android:id="@+id/emailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/email_address"
+                    android:textColor="#FF0000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/emailText"
+                    android:layout_toRightOf="@id/emailText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textColor="#68676A"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/trackApplicationBtn"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/btnbg"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/block3"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/img_track_btn"
+                android:text=""
                 android:textColor="#000055"
-                android:textStyle="bold"
-                android:text="@string/track_application_btn" />
+                android:textStyle="bold" />
         </RelativeLayout>
     </RelativeLayout>
 

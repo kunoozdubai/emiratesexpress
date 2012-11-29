@@ -100,7 +100,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		staticContentParent.setVisibility(View.VISIBLE);
 		staticContentShowing = true;
 		
-		titleTxt.setText(getString(R.string.applications_detail_screen_title));
+//		titleTxt.setText(getString(R.string.applications_detail_screen_title));
 		
 		TextView textView = (TextView) findViewById(R.id.transaction);
 		textView.setText(applicationObject.getTransaction());
@@ -116,10 +116,10 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		textView.setText(applicationObject.getDebit());
 		textView = (TextView) findViewById(R.id.oldBalance);
 		textView.setText(applicationObject.getOldBalance());
-		textView = (TextView) findViewById(R.id.comments);
-		textView.setText(applicationObject.getComments());
-		textView = (TextView) findViewById(R.id.description);
-		textView.setText(applicationObject.getDescription());
+//		textView = (TextView) findViewById(R.id.comments);
+//		textView.setText(applicationObject.getComments());
+//		textView = (TextView) findViewById(R.id.description);
+//		textView.setText(applicationObject.getDescription());
 		
 		
 	}
@@ -131,7 +131,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 			if (staticContentShowing) {
 				mainParent.setVisibility(View.VISIBLE);
 				staticContentParent.setVisibility(View.GONE);
-				titleTxt.setText(getString(R.string.applications_screen_title));
+//				titleTxt.setText(getString(R.string.applications_screen_title));
 				staticContentShowing = false;
 			} else {
 				finish();
@@ -165,7 +165,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		if (staticContentShowing) {
 			mainParent.setVisibility(View.VISIBLE);
 			staticContentParent.setVisibility(View.GONE);
-			titleTxt.setText(getString(R.string.applications_screen_title));
+//			titleTxt.setText(getString(R.string.applications_screen_title));
 			staticContentShowing = false;
 		} else {
 			super.onBackPressed();

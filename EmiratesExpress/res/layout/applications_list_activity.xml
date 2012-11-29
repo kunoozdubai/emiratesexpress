@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/applications_screen_title"
+            android:text="@string/main_screen_title"
             android:textColor="@android:color/white"
             android:textSize="22dp"
             android:textStyle="bold" />
@@ -68,225 +68,227 @@
         <TextView
             android:id="@+id/transaction"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/application_detail_lbl_bg"
             android:gravity="center"
-            android:text="I am transaction title of this application"
-            android:textColor="@android:color/black"
+            android:text=""
+            android:textColor="#FF0000"
             android:textSize="15dp"
             android:textStyle="bold" />
-
+        
         <RelativeLayout
-            android:id="@+id/block1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/transaction"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp" >
+                android:id="@+id/block1"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" 
+                android:layout_below="@id/transaction">
 
-            <TextView
-                android:id="@+id/authorityText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/authority_text"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/authorityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/authority_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/authority"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_toRightOf="@id/authorityText"
-                android:text="Hellow I am authority"
-                android:textColor="@android:color/black" />
-        </RelativeLayout>
-
+                <TextView
+                    android:id="@+id/authority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/authorityText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+        
         <RelativeLayout
-            android:id="@+id/block2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/block1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp" >
+                android:id="@+id/block2"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block1"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/statusText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/status_text"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/status_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/serviceFeeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/statusText"
-                android:layout_marginTop="10dp"
-                android:text="@string/service_fee_text"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/govtFeeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/serviceFeeText"
-                android:layout_marginTop="10dp"
-                android:text="@string/govt_fee_text"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/debitText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/govtFeeText"
-                android:layout_marginTop="10dp"
-                android:text="@string/debit_text"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/oldBalanceText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/debitText"
-                android:layout_marginTop="10dp"
-                android:text="@string/old_balance_text"
-                android:textColor="@android:color/black" />
-        </RelativeLayout>
-
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/statusText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+            
         <RelativeLayout
-            android:id="@+id/block3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/block1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/block2" >
+                android:id="@+id/block3"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block2"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="approved"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/serviceFeeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/service_fee_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/serviceFee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/status"
-                android:layout_marginTop="10dp"
-                android:text="100"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/govtFee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/serviceFee"
-                android:layout_marginTop="10dp"
-                android:text="200"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/debit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/govtFee"
-                android:layout_marginTop="10dp"
-                android:text="300"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/oldBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/debit"
-                android:layout_marginTop="10dp"
-                android:text="400"
-                android:textColor="@android:color/black" />
-        </RelativeLayout>
-       
+                <TextView
+                    android:id="@+id/serviceFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/serviceFeeText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+            
         <RelativeLayout
-            android:id="@+id/block4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/block3"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp" >
+                android:id="@+id/block4"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block3"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/commentsText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/comments_text"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/govtFeeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/govt_fee_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/commentsText" >
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/comments"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/commentsText"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="I am comments and i wil be very very long so make me scrollable"
-                        android:textColor="@android:color/black" >
-                    </TextView>
-                </RelativeLayout>
-            </ScrollView>
-        </RelativeLayout>
-
+                <TextView
+                    android:id="@+id/govtFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/govtFeeText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+            
         <RelativeLayout
-            android:id="@+id/block5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/block4"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp" >
+                android:id="@+id/block5"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block4"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-            <TextView
-                android:id="@+id/descriptionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description_text"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:id="@+id/debitText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/debit_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/descriptionText" >
+                <TextView
+                    android:id="@+id/debit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/debitText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/block6"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block5"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btnbg" >
 
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/oldBalanceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/old_balance_text"
+                    android:textColor="#FF0000"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/descriptionText"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:text="I am descriptoin and i wil be very very long so make me scrollable"
-                        android:textColor="@android:color/black" >
-                    </TextView>
-                </RelativeLayout>
-            </ScrollView>
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/oldBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/oldBalanceText"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="#68676A"
+                    android:textSize="18dp" />
+            </RelativeLayout>
+        
+        <Button
+                android:id="@+id/readMoreBtn"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/block6"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#FF0000"
+                android:textStyle="bold"
+                android:text="@string/read_more_btn"
+                android:background="@drawable/btn_bg_small" />
+        	
     </RelativeLayout>
+
 </RelativeLayout>

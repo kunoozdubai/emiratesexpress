@@ -12,13 +12,14 @@ public class User {
 	private String userType;
 	private String created;
 	private String mobile;
+	private String company;
 
 	public User() {
 		super();
 	}
 
 	public User(String userId, String name, String nameArabic, String username, String password, String email, String status, String userType, String created,
-			String mobile) {
+			String mobile, String company) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -30,6 +31,7 @@ public class User {
 		this.userType = userType;
 		this.created = created;
 		this.mobile = mobile;
+		this.company = company;
 	}
 
 	public String getUserId() {
@@ -110,6 +112,14 @@ public class User {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
 }

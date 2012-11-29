@@ -7,33 +7,35 @@
     <RelativeLayout
         android:id="@+id/mainParent"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/btnbg"
+        android:background="@drawable/cell_bg3"
         >
         <TextView
             android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#FF0000"
             android:singleLine="true"
             android:layout_marginTop="5dp"
             android:textStyle="bold"
             android:text=""
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="70dp"
             />
         
         <TextView
             android:id="@+id/descriptionTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:textColor="#68676A"
             android:lines="2"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_marginTop="5dp"
             android:text=""
             android:layout_below="@id/titleTxt"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="70dp"
             />
         
           

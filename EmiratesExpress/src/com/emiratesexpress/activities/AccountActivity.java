@@ -79,11 +79,11 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 	private void showUserAccountDetail() {
 		User user = Configurations.user;
 		accoutDetailParent.setVisibility(View.VISIBLE);
-		TextView textView = (TextView) findViewById(R.id.nameText);
+		TextView textView = (TextView) findViewById(R.id.name);
 		textView.setText(user.getName());
-		textView = (TextView) findViewById(R.id.usernameText);
-		textView.setText(user.getUsername());
-		textView = (TextView) findViewById(R.id.emailText);
+		textView = (TextView) findViewById(R.id.company);
+		textView.setText(user.getCompany());
+		textView = (TextView) findViewById(R.id.email);
 		textView.setText(user.getEmail());
 		signOutBtn.setVisibility(View.VISIBLE);
 		
