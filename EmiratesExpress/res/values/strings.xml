@@ -22,7 +22,7 @@
     <string name="password">Password</string>
     <string name="re_enter_password">Re-enter Password</string>
     <string name="company_name">COMPANY</string>
-    <string name="email_address">EMAIl</string>
+    <string name="email_address">EMAI</string>
     <string name="name">NAME</string>
     <string name="name_in_arabic">Name in Arabic</string>
     <string name="logout">Logout</string>
@@ -33,8 +33,8 @@
     <string name="govt_fee_text">Govt Fee:</string>
     <string name="debit_text">Debit:</string>
     <string name="old_balance_text">Old Balance:</string>
-    <string name="comments_text">Comments</string>
-    <string name="description_text">Description</string>
+    <string name="comments_text">COMMENTS</string>
+    <string name="description_text">DESCRIPTION</string>
     <string name="read_more_btn">Read More</string>
     
     <string name="track_application_btn">Track Application</string>

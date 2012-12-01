@@ -39,8 +39,16 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 	private RelativeLayout mainParent;
 	private RelativeLayout staticContentParent;
+	private RelativeLayout readMoreStaticContentParent;
 	private TextView titleTxt;
 	private boolean staticContentShowing = false;
+	private boolean readMoreStaticContentShowing = false;
+	
+	private String transaction = "";
+	private String comments = "";
+	private String description = "";
+	
+	private int SCROLL_INTERVAL = 1000;
 	
 
 	@Override
@@ -53,13 +61,22 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		mainParent = (RelativeLayout) findViewById(R.id.mainParent);
 		staticContentParent = (RelativeLayout) findViewById(R.id.staticContentParent);
+		readMoreStaticContentParent = (RelativeLayout) findViewById(R.id.readMoreStaticContentParent);
 		titleTxt = (TextView) findViewById(R.id.titleTxt);
 
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
+		button = (Button) findViewById(R.id.readMoreBtn);
+		button.setOnClickListener(this);
 
 		ImageView imageView = (ImageView) findViewById(R.id.mainBackgroundImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
+		
+		imageView = (ImageView) findViewById(R.id.upArrowBtn);
+		imageView.setOnClickListener(this);
+		
+		imageView = (ImageView) findViewById(R.id.downArrowBtn);
+		imageView.setOnClickListener(this);
 		
 		String userId = Utilities.getStringValuesFromPreference(context, NetworkConstants.USERID, "");
 		String postData = makePostData(userId);
@@ -103,7 +120,8 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 //		titleTxt.setText(getString(R.string.applications_detail_screen_title));
 		
 		TextView textView = (TextView) findViewById(R.id.transaction);
-		textView.setText(applicationObject.getTransaction());
+		transaction = applicationObject.getTransaction();
+		textView.setText(transaction);
 		textView = (TextView) findViewById(R.id.authority);
 		textView.setText(applicationObject.getAuthority());
 		textView = (TextView) findViewById(R.id.status);
@@ -117,9 +135,9 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		textView = (TextView) findViewById(R.id.oldBalance);
 		textView.setText(applicationObject.getOldBalance());
 //		textView = (TextView) findViewById(R.id.comments);
-//		textView.setText(applicationObject.getComments());
+		comments = applicationObject.getComments();
 //		textView = (TextView) findViewById(R.id.description);
-//		textView.setText(applicationObject.getDescription());
+		description = applicationObject.getDescription();
 		
 		
 	}
@@ -133,9 +151,32 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 				staticContentParent.setVisibility(View.GONE);
 //				titleTxt.setText(getString(R.string.applications_screen_title));
 				staticContentShowing = false;
-			} else {
+			} else if(readMoreStaticContentShowing){
+				staticContentParent.setVisibility(View.VISIBLE);
+				readMoreStaticContentParent.setVisibility(View.GONE);
+				staticContentShowing = true;
+				readMoreStaticContentShowing = false;
+			} else{
 				finish();
 			}
+		} else if(id == R.id.readMoreBtn){
+			readMoreStaticContentShowing = true;
+			staticContentShowing = false;
+			staticContentParent.setVisibility(View.GONE);
+			mainParent.setVisibility(View.GONE);
+			readMoreStaticContentParent.setVisibility(View.VISIBLE);
+			TextView textView = (TextView) findViewById(R.id.transaction2);
+			textView.setText(transaction);
+			textView = (TextView) findViewById(R.id.comments);
+			textView.setText(comments);
+			textView = (TextView) findViewById(R.id.description);
+			textView.setText(description);
+			
+		} else if(id == R.id.upArrowBtn){
+			myList.smoothScrollToPosition(0);
+		}
+		else if(id == R.id.downArrowBtn){
+			myList.smoothScrollToPosition(adapter.getCount());
 		}
 	}
 
@@ -145,6 +186,22 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		public void onSuccess(JSONObject response) {
 			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			applicationsArrayList = Parser.parseApplicationResponse(response);
+			
+			Applications apps = applicationsArrayList.get(0);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			applicationsArrayList.add(apps);
+			
+			
 			adapter = new ApplicationsListViewAdapter(context, applicationsArrayList);
 			myList = (ListView) findViewById(R.id.list);
 			myList.setAdapter(adapter);
@@ -167,6 +224,11 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 			staticContentParent.setVisibility(View.GONE);
 //			titleTxt.setText(getString(R.string.applications_screen_title));
 			staticContentShowing = false;
+		} else if(readMoreStaticContentShowing){
+			staticContentParent.setVisibility(View.VISIBLE);
+			readMoreStaticContentParent.setVisibility(View.GONE);
+			staticContentShowing = true;
+			readMoreStaticContentShowing = false;
 		} else {
 			super.onBackPressed();
 		}

@@ -38,7 +38,9 @@
             android:textSize="22dp"
             android:textStyle="bold" />
     </RelativeLayout>
-
+    
+    
+    
     <RelativeLayout
         android:id="@+id/mainParent"
         android:layout_width="wrap_content"
@@ -47,15 +49,48 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
         android:visibility="visible" >
+        
+        <RelativeLayout
+            android:id="@+id/block9"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="12dp" >
+
+            <ImageView
+                android:id="@+id/upArrowBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/img_up_btn" />
+
+            <ImageView
+                android:id="@+id/downArrowBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/img_down_btn" />
+        </RelativeLayout>
+        
 
         <ListView
             android:id="@+id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleParent"
+            android:layout_above="@id/block9"
             android:layout_weight="1.25"
-            android:background="@android:color/transparent" >
+            android:layout_marginTop="10dp"
+            android:background="@android:color/background_light" >
         </ListView>
+        
+        
+        
+        
+        
+        
     </RelativeLayout>
 
     <RelativeLayout
@@ -79,216 +114,335 @@
             android:textColor="#FF0000"
             android:textSize="15dp"
             android:textStyle="bold" />
-        
+
         <RelativeLayout
-                android:id="@+id/block1"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" 
-                android:layout_below="@id/transaction">
+            android:id="@+id/block1"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/transaction"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btnbg" >
 
-                <TextView
-                    android:id="@+id/authorityText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/authority_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/authority"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/authorityText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-        
-        <RelativeLayout
-                android:id="@+id/block2"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block1"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" >
-
-                <TextView
-                    android:id="@+id/statusText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/status_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/statusText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-            
-        <RelativeLayout
-                android:id="@+id/block3"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block2"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" >
-
-                <TextView
-                    android:id="@+id/serviceFeeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/service_fee_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/serviceFee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/serviceFeeText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-            
-        <RelativeLayout
-                android:id="@+id/block4"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block3"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" >
-
-                <TextView
-                    android:id="@+id/govtFeeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/govt_fee_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/govtFee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/govtFeeText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-            
-        <RelativeLayout
-                android:id="@+id/block5"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block4"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" >
-
-                <TextView
-                    android:id="@+id/debitText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/debit_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/debit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/debitText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-        <RelativeLayout
-                android:id="@+id/block6"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block5"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btnbg" >
-
-                <TextView
-                    android:id="@+id/oldBalanceText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text="@string/old_balance_text"
-                    android:textColor="#FF0000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/oldBalance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/oldBalanceText"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:text=""
-                    android:textStyle="bold"
-                    android:textColor="#68676A"
-                    android:textSize="18dp" />
-            </RelativeLayout>
-        
-        <Button
-                android:id="@+id/readMoreBtn"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/block6"
-                android:layout_marginTop="10dp"
-                android:layout_centerHorizontal="true"
+            <TextView
+                android:id="@+id/authorityText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/authority_text"
                 android:textColor="#FF0000"
-                android:textStyle="bold"
-                android:text="@string/read_more_btn"
-                android:background="@drawable/btn_bg_small" />
-        	
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/authority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/authorityText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block2"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btnbg" >
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/status_text"
+                android:textColor="#FF0000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/statusText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block3"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btnbg" >
+
+            <TextView
+                android:id="@+id/serviceFeeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/service_fee_text"
+                android:textColor="#FF0000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/serviceFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/serviceFeeText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block4"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btnbg" >
+
+            <TextView
+                android:id="@+id/govtFeeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/govt_fee_text"
+                android:textColor="#FF0000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/govtFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/govtFeeText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block5"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btnbg" >
+
+            <TextView
+                android:id="@+id/debitText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/debit_text"
+                android:textColor="#FF0000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/debit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/debitText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block6"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btnbg" >
+
+            <TextView
+                android:id="@+id/oldBalanceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/old_balance_text"
+                android:textColor="#FF0000"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/oldBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/oldBalanceText"
+                android:text=""
+                android:textColor="#68676A"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/readMoreBtn"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/block6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_bg_small"
+            android:text="@string/read_more_btn"
+            android:textColor="#FF0000"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/readMoreStaticContentParent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleParent"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/transaction2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/application_detail_lbl_bg"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#FF0000"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/block7"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transaction2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" >
+
+            <TextView
+                android:id="@+id/commentsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/lbl_bg_3"
+                android:gravity="center"
+                android:text="@string/comments_text"
+                android:textColor="#68676A"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="300dp"
+                android:layout_height="110dp"
+                android:layout_below="@id/commentsText"
+                android:background="@drawable/cellbg2"
+                android:scrollbars="none" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/commentsText"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text=""
+                        android:textColor="@android:color/black" >
+                    </TextView>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block8"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/block7"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp" >
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/lbl_bg_3"
+                android:gravity="center"
+                android:text="@string/description_text"
+                android:textColor="#68676A"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="300dp"
+                android:layout_height="110dp"
+                android:layout_below="@id/descriptionText"
+                android:background="@drawable/cellbg2" 
+                android:scrollbars="none">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/descriptionText"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text=""
+                        android:textColor="@android:color/black" >
+                    </TextView>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>
