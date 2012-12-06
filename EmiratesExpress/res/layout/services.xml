@@ -402,12 +402,16 @@
             android:layout_marginTop="10dp"
             android:layout_height="300dp"
             android:layout_below="@id/serviceImgParent"
-            android:layout_centerHorizontal="true" 
-            android:background="@drawable/cellbg2">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/back" 
+            >
 
             <ScrollView
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:scrollbars="none">
 
                 <RelativeLayout
                     android:layout_width="fill_parent"

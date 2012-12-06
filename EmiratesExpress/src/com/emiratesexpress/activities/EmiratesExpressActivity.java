@@ -1,7 +1,10 @@
 package com.emiratesexpress.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -45,11 +48,11 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
         button.setOnClickListener(this);
         button = (Button) findViewById(R.id.servicesBtn);
         button.setOnClickListener(this);
-//        button = (Button) findViewById(R.id.howToBtn);
-//        button.setOnClickListener(this);
         button = (Button) findViewById(R.id.contactUsBtn);
         button.setOnClickListener(this);
-        
+        button = (Button) findViewById(R.id.settingsBtn);
+        button.setOnClickListener(this);
+        Utilities.getLastReknownedGPSLocation();
         
     }
 
@@ -67,8 +70,41 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.contactUsBtn){
 			Intent intent = new Intent(context, ContactUsActivity.class);
 			startActivity(intent);
+		}else if(id == R.id.settingsBtn){
+			createAlertDialogForLanguage();
 		}
+		
 	}
+	
+	
+	private void createAlertDialogForLanguage() {
+		Builder alertBuilder = new Builder(context);
+
+		alertBuilder.setTitle("");
+		alertBuilder.setMessage(getString(R.string.choose_language));
+		
+		alertBuilder.setPositiveButton("English", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Utilities.updateLocale("en");
+			}
+		});
+		alertBuilder.setNegativeButton(getString(R.string.arabic), new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				Utilities.updateLocale("ar");
+			}
+		});
+		alertBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+			}
+		});
+		alertBuilder.create().show();
+	}
+
+	
 	
 	@Override
 	protected void onDestroy() {

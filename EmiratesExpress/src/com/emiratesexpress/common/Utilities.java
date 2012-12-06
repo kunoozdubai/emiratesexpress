@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.protocol.HTTP;
 
@@ -14,27 +16,30 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class Utilities {
 
-	
 	public static AlertDialog alertDialog = null;
 	public static ProgressDialog progressDialog = null;
 
 	private static BitmapFactory.Options options = null;
-	
+
 	public static HashMap<String, BitmapDrawable> imageMap = new HashMap<String, BitmapDrawable>();
 
-	
-	
-	
 	/**
 	 * @param name
 	 * @param defaultValue
@@ -190,8 +195,7 @@ public class Utilities {
 		alertDialog.setCancelable(false);
 		alertDialog.show();
 	}
-	
-	
+
 	public static boolean isArrayValuesEmptyOrNull(String[] values) {
 		for (int i = 0; i < values.length; i++) {
 			if (null == values[i] || "".equals(values[i])) {
@@ -216,7 +220,7 @@ public class Utilities {
 			return android.util.Patterns.PHONE.matcher(target).matches();
 		}
 	}
-	
+
 	public static boolean isStringEmptyOrNull(String checkString) {
 		// return !(checkString != null && !"".equals(checkString) &&
 		// checkString
@@ -227,7 +231,7 @@ public class Utilities {
 
 		return false;
 	}
-	
+
 	public static void unbindDrawables(View view) {
 		if (view != null) {
 			if (view.getBackground() != null) {
@@ -257,7 +261,7 @@ public class Utilities {
 		}
 		return options;
 	}
-	
+
 	public static String readServerResponse(InputStream inputStream) {
 		StringBuilder response = new StringBuilder("");
 		try {
@@ -286,5 +290,58 @@ public class Utilities {
 		return response.toString();
 	}
 
-	
+	public static void getLastReknownedGPSLocation() {
+		Geocoder geocoder;
+		String bestProvider;
+		List<Address> user = null;
+		double lat;
+		double lng;
+		String longitude;
+		String latitude;
+		LocationManager lm = (LocationManager) CommonConstants.EMIRATES_EXPRESS_CONTEXT.getSystemService(Context.LOCATION_SERVICE);
+
+		Criteria criteria = new Criteria();
+		bestProvider = lm.getBestProvider(criteria, false);
+		Location location = lm.getLastKnownLocation(bestProvider);
+
+		if (location == null) {
+			Toast.makeText(CommonConstants.EMIRATES_EXPRESS_CONTEXT, "Current Location Not found", Toast.LENGTH_LONG).show();
+		} else {
+			geocoder = new Geocoder(CommonConstants.EMIRATES_EXPRESS_CONTEXT);
+			try {
+				user = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+				lat = (double) user.get(0).getLatitude();
+				lng = (double) user.get(0).getLongitude();
+				// Toast.makeText(CommonConstants.DJI_MAIN_ACTIVITY_CONTEXT,
+				// " DDD lat: " + lat + ",  longitude: " + lng,
+				// Toast.LENGTH_LONG).show();
+				longitude = String.valueOf(lng);
+				latitude = String.valueOf(lat);
+
+				if ("null".equals(longitude)) {
+					longitude = "";
+				} else {
+					CommonConstants.CURRENT_LONGITUDE = Double.parseDouble(longitude);
+				}
+				if ("null".equals(latitude)) {
+					latitude = "";
+				} else {
+					CommonConstants.CURRENT_LATITUDE = Double.parseDouble(latitude);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
+
+	public static void updateLocale(String localeCode) {
+		Locale locale = new Locale(localeCode);
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		CommonConstants.EMIRATES_EXPRESS_CONTEXT.getApplicationContext().getResources().updateConfiguration(config, null);
+	}
+
 }

@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.emiratesexpress.R;
+import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Utilities;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -78,16 +79,41 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		// //////////////////////Setting marker for device
+		// location/////////////////////
 
-		// OverlayItem overlayitem = new OverlayItem(point, "Dubai", "");
-		//
-		// itemizedOverlay.addOverlay(overlayitem);
-		// mapOverlays.add(itemizedOverlay);
-		//
-		// MapController mapController = mapView.getController();
-		//
-		// mapController.animateTo(point);
-		// mapController.setZoom(6);
+		mapOverlays = mapView.getOverlays();
+		drawable = this.getResources().getDrawable(R.drawable.marker_current);
+		itemizedOverlay = new CustomItemizedOverlay(drawable, this);
+
+		// GeoPoint point = new GeoPoint(latitudeE6, longitudeE6);
+
+		point = new LatLonPoint(CommonConstants.CURRENT_LATITUDE, CommonConstants.CURRENT_LONGITUDE);
+		geocoder = new Geocoder(this, Locale.ENGLISH);
+
+		try {
+			addresses = geocoder.getFromLocation(CommonConstants.CURRENT_LATITUDE, CommonConstants.CURRENT_LONGITUDE, 1);
+			if (addresses != null && addresses.size() > 0) {
+				Address returnedAddress = addresses.get(0);
+				StringBuilder strReturnedAddress = new StringBuilder("Address:\n");
+				for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
+					strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+				}
+				OverlayItem overlayitem = new OverlayItem(point, strReturnedAddress.toString(), "");
+				itemizedOverlay.addOverlay(overlayitem);
+				mapOverlays.add(itemizedOverlay);
+				MapController mapController = mapView.getController();
+				// mapController.animateTo(point);
+				mapController.setZoom(6);
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// ///////////////////////////////////////////
+
 	}
 
 	@Override

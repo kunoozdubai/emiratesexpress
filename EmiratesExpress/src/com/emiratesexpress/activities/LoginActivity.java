@@ -131,14 +131,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				}
 				finish();
 			} else {
-				Toast.makeText(context, "Registration Failed", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show();
 			}
 
 		}
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "Error in Registration. Please try again!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "Error in Login. Please try again!", Toast.LENGTH_SHORT).show();
 		}
 
 	}

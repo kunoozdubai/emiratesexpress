@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -173,10 +173,14 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 			textView.setText(description);
 			
 		} else if(id == R.id.upArrowBtn){
-			myList.smoothScrollToPosition(0);
+			if(myList != null){
+				myList.smoothScrollToPosition(0);
+			}
 		}
 		else if(id == R.id.downArrowBtn){
-			myList.smoothScrollToPosition(adapter.getCount());
+			if(myList != null && adapter != null){
+				myList.smoothScrollToPosition(adapter.getCount());
+			}
 		}
 	}
 
@@ -186,22 +190,6 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		public void onSuccess(JSONObject response) {
 			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			applicationsArrayList = Parser.parseApplicationResponse(response);
-			
-			Applications apps = applicationsArrayList.get(0);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			applicationsArrayList.add(apps);
-			
-			
 			adapter = new ApplicationsListViewAdapter(context, applicationsArrayList);
 			myList = (ListView) findViewById(R.id.list);
 			myList.setAdapter(adapter);
