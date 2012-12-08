@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.asynctask.DataDownloadTask;
+import com.emiratesexpress.asynctask.StartLocationActivityTask;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
@@ -38,7 +39,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.sendBtn);
 		button.setOnClickListener(this);
-
+		
 	}
 
 	@Override
@@ -47,8 +48,8 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		if (id == R.id.backBtn) {
 			finish();
 		} else if(id == R.id.locationBtn){
-			Intent intent = new Intent(context, EmiratesExpressGoogleMapActivity.class);
-			startActivity(intent);
+			new StartLocationActivityTask(context).execute();
+
 		} else if (id == R.id.sendBtn) {
 
 			EditText editText = (EditText) findViewById(R.id.name);

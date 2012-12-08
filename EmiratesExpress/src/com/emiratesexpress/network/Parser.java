@@ -103,6 +103,7 @@ public class Parser {
 		String authority = "";
 		String authorityAr = "";
 		String transaction = "";
+		String transactionAr = "";
 		String username = "";
 		String nameAr = "";
 		String datePosted = "";
@@ -162,11 +163,11 @@ public class Parser {
 				}
 				if (!response.isNull(NetworkConstants.STATUS)) {
 					int value = Integer.parseInt(response.getString(NetworkConstants.STATUS));
-					if(value == CommonConstants.APPROVED){
+					if (value == CommonConstants.APPROVED) {
 						status = "Approved";
-					} else if(value == CommonConstants.IN_PROCESS){
+					} else if (value == CommonConstants.IN_PROCESS) {
 						status = "In Process";
-					} else if(value == CommonConstants.REJECTED){
+					} else if (value == CommonConstants.REJECTED) {
 						status = "Rejected";
 					}
 				}
@@ -179,6 +180,9 @@ public class Parser {
 				if (!response.isNull(NetworkConstants.TRANSACTION)) {
 					transaction = response.getString(NetworkConstants.TRANSACTION);
 				}
+				if (!response.isNull(NetworkConstants.TRANSACTION_AR)) {
+					transactionAr = response.getString(NetworkConstants.TRANSACTION_AR);
+				}
 				if (!response.isNull(NetworkConstants.USERNAME)) {
 					username = response.getString(NetworkConstants.USERNAME);
 				}
@@ -188,7 +192,8 @@ public class Parser {
 				if (!response.isNull(NetworkConstants.DATE_POSTED)) {
 					datePosted = response.getString(NetworkConstants.DATE_POSTED);
 				}
-				Applications applications = new Applications(transId, transTypeId, userId, description, name, serviceFee, govtFee, debit, oldBalance, posted, comments, status, authority, authorityAr, transaction, username, nameAr, datePosted);
+				Applications applications = new Applications(transId, transTypeId, userId, description, name, serviceFee, govtFee, debit, oldBalance, posted,
+						comments, status, authority, authorityAr, transaction, transactionAr, username, nameAr, datePosted);
 				applicationList.add(applications);
 				transId = "";
 				transTypeId = "";
@@ -205,6 +210,7 @@ public class Parser {
 				authority = "";
 				authorityAr = "";
 				transaction = "";
+				transactionAr = "";
 				username = "";
 				nameAr = "";
 				datePosted = "";

@@ -70,6 +70,10 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 			editText = (EditText) findViewById(R.id.password);
 			password = editText.getText().toString();
 			
+			if(Utilities.isStringEmptyOrNull(username) || Utilities.isStringEmptyOrNull(password)){
+				return;
+			}
+			
 			String postData = makePostData(username, password);
 
 			new DataDownloadTask(context, new RegisterResponse(), NetworkConstants.EMIRATES_EXPRESS_URL, postData).execute();

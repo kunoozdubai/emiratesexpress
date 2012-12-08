@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contact_us"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/backgourndImg"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         />
+
+    <RelativeLayout
+        android:id="@+id/titleParent"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#FF0000" >
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/backbtn"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/contact_us_screen_title"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" 
+            android:textSize="22dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mainParent"
+        android:layout_width="fill_parent"
+        android:layout_height="600dp"
+        android:layout_below="@id/titleParent"
+        >
+
+        
+        <RelativeLayout
+            android:id="@+id/block1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTxt" 
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true">
+            <EditText android:id="@+id/name" 
+                android:layout_width="300dp" 
+                android:layout_height="40dp"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:singleLine="true"
+                android:hint="@string/name"
+                />
+            
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/block2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/block1"
+            android:layout_centerHorizontal="true">
+            <EditText android:id="@+id/company" 
+                android:layout_width="300dp" 
+                android:layout_height="40dp"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:singleLine="true"
+                android:hint="@string/company_name"
+                />
+            
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/block3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/block2"
+            android:layout_centerHorizontal="true">
+            <EditText android:id="@+id/email" 
+                android:layout_width="300dp" 
+                android:layout_height="40dp"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email_address"
+                />
+            
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/block4"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/block3" 
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true">
+            <EditText android:id="@+id/description" 
+                android:layout_width="300dp" 
+                android:layout_height="200dp"
+                android:gravity="right"
+                />
+            
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/block5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/block4" 
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+            <Button android:id="@+id/sendBtn" 
+                android:layout_width="80dp" 
+                android:layout_height="30dp"
+                android:text="@string/send_btn"
+                android:gravity="center"
+                android:textColor="#000055"
+                android:textStyle="bold"
+                android:background="@drawable/btnbg"
+                />
+            
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/block6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_alignParentRight="true"
+             android:layout_marginRight="10dp"
+             android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            >
+            <ImageView android:id="@+id/locationBtn" 
+                android:layout_width="wrap_content" 
+                android:layout_height="wrap_content"
+                android:background="@drawable/map_icon"
+                />
+            
+        </RelativeLayout>
+        
+    </RelativeLayout>
+
+</RelativeLayout>

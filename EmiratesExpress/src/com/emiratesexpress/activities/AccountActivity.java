@@ -79,10 +79,17 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 	private void showUserAccountDetail() {
 		User user = Configurations.user;
 		accoutDetailParent.setVisibility(View.VISIBLE);
-		TextView textView = (TextView) findViewById(R.id.name);
-		textView.setText(user.getName());
-		textView = (TextView) findViewById(R.id.company);
+		TextView textView = (TextView) findViewById(R.id.company);
 		textView.setText(user.getCompany());
+		if(Configurations.currentLanguage == 1){
+			textView = (TextView) findViewById(R.id.name);
+			textView.setText(user.getName());	
+		}else {
+			textView = (TextView) findViewById(R.id.name);
+			textView.setText(user.getNameArabic());
+		}
+		
+		
 		textView = (TextView) findViewById(R.id.email);
 		textView.setText(user.getEmail());
 		signOutBtn.setVisibility(View.VISIBLE);
@@ -154,9 +161,10 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 		alertBuilder = new Builder(context);
 
 		alertBuilder.setTitle("");
-		alertBuilder.setMessage("Account");
+		//alertBuilder.setMessage("Account");
+		alertBuilder.setMessage(getString(R.string.account_screen_title));
 		
-		alertBuilder.setPositiveButton("Login", new DialogInterface.OnClickListener() {
+		alertBuilder.setPositiveButton(getString(R.string.login), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Intent intent = new Intent(context, LoginActivity.class);
@@ -164,7 +172,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 				
 			}
 		});
-		alertBuilder.setNegativeButton("Register", new DialogInterface.OnClickListener() {
+		alertBuilder.setNegativeButton(getString(R.string.register), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Intent intent = new Intent(context, RegisterActivity.class);

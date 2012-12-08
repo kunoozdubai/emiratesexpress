@@ -26,6 +26,7 @@
     <string name="name">الاسم</string>
     <string name="name_in_arabic">الاسم في اللغة العربية</string>
     <string name="logout">خروج</string>
+    <string name="send_btn">إرسال</string>
     
     <string name="authority_text">:سلطان</string>
     <string name="status_text">:حالة</string>

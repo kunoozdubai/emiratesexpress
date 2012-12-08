@@ -15,6 +15,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -30,6 +31,8 @@ import android.net.NetworkInfo;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.emiratesexpress.activities.EmiratesExpressActivity;
 
 public class Utilities {
 
@@ -342,6 +345,15 @@ public class Utilities {
 		Configuration config = new Configuration();
 		config.locale = locale;
 		CommonConstants.EMIRATES_EXPRESS_CONTEXT.getApplicationContext().getResources().updateConfiguration(config, null);
+	}
+
+	public static void restartMainActivity(Context context) {
+		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).finish();
+		Intent intent = new Intent(context, EmiratesExpressActivity.class);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		// intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		context.startActivity(intent);
 	}
 
 }

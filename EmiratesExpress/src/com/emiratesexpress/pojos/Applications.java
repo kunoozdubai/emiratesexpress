@@ -17,6 +17,7 @@ public class Applications {
 	private String authority;
 	private String authorityAr;
 	private String transaction;
+	private String transactionAr;
 	private String username;
 	private String nameAr;
 	private String datePosted;
@@ -27,7 +28,7 @@ public class Applications {
 	}
 
 	public Applications(String transId, String transTypeId, String userId, String description, String name, String serviceFee, String govtFee, String debit,
-			String oldBalance, String posted, String comments, String status, String authority, String authorityAr, String transaction, String username,
+			String oldBalance, String posted, String comments, String status, String authority, String authorityAr, String transaction, String transactionAr, String username,
 			String nameAr, String datePosted) {
 		super();
 		this.transId = transId;
@@ -45,6 +46,7 @@ public class Applications {
 		this.authority = authority;
 		this.authorityAr = authorityAr;
 		this.transaction = transaction;
+		this.transactionAr = transactionAr;
 		this.username = username;
 		this.nameAr = nameAr;
 		this.datePosted = datePosted;
@@ -191,6 +193,22 @@ public class Applications {
 	}
 
 	public void setDateposted(String datePosted) {
+		this.datePosted = datePosted;
+	}
+
+	public String getTransactionAr() {
+		return transactionAr;
+	}
+
+	public void setTransactionAr(String transactionAr) {
+		this.transactionAr = transactionAr;
+	}
+
+	public String getDatePosted() {
+		return datePosted;
+	}
+
+	public void setDatePosted(String datePosted) {
 		this.datePosted = datePosted;
 	}
 }

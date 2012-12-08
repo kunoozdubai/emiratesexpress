@@ -1,7 +1,6 @@
 package com.emiratesexpress.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.emiratesexpress.R;
+import com.emiratesexpress.asynctask.RestartingApplicationTask;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.Utilities;
@@ -52,7 +52,7 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
         button.setOnClickListener(this);
         button = (Button) findViewById(R.id.settingsBtn);
         button.setOnClickListener(this);
-        Utilities.getLastReknownedGPSLocation();
+        
         
     }
 
@@ -86,13 +86,19 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		alertBuilder.setPositiveButton("English", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Utilities.updateLocale("en");
+				new RestartingApplicationTask(context, "en").execute();
+				Configurations.currentLanguage = 1;
+				//Utilities.updateLocale("en");
+				
 			}
 		});
 		alertBuilder.setNegativeButton(getString(R.string.arabic), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Utilities.updateLocale("ar");
+				new RestartingApplicationTask(context, "ar").execute();
+				Configurations.currentLanguage = 2;
+				//Utilities.updateLocale("ar");
+				
 			}
 		});
 		alertBuilder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
@@ -104,13 +110,17 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		alertBuilder.create().show();
 	}
 
-	
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+		finish();
+		Utilities.updateLocale("en");
+	}
 	
 	@Override
 	protected void onDestroy() {
-
+		super.onDestroy();
 		context = null;
 		Utilities.unbindDrawables(findViewById(R.id.emirates_express_activity));
-		super.onDestroy();
 	}
 }

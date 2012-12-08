@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.emiratesexpress.R;
 import com.emiratesexpress.adapters.ApplicationsListViewAdapter;
 import com.emiratesexpress.asynctask.ApplicationsDataDownloadTask;
+import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
@@ -119,13 +120,23 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		
 //		titleTxt.setText(getString(R.string.applications_detail_screen_title));
 		
-		TextView textView = (TextView) findViewById(R.id.transaction);
-		transaction = applicationObject.getTransaction();
-		textView.setText(transaction);
-		textView = (TextView) findViewById(R.id.authority);
-		textView.setText(applicationObject.getAuthority());
-		textView = (TextView) findViewById(R.id.status);
+		
+		TextView textView = (TextView) findViewById(R.id.status);
 		textView.setText(applicationObject.getStatus());
+		if(Configurations.currentLanguage == 1){
+			textView = (TextView) findViewById(R.id.transaction);
+			transaction = applicationObject.getTransaction();
+			textView.setText(transaction);
+			textView = (TextView) findViewById(R.id.authority);
+			textView.setText(applicationObject.getAuthority());
+		}else {
+			textView = (TextView) findViewById(R.id.transaction);
+			transaction = applicationObject.getTransactionAr();
+			textView.setText(transaction);
+			textView = (TextView) findViewById(R.id.authority);
+			textView.setText(applicationObject.getAuthorityAr());
+		}
+		
 		textView = (TextView) findViewById(R.id.serviceFee);
 		textView.setText(applicationObject.getServiceFee());
 		textView = (TextView) findViewById(R.id.govtFee);

@@ -72,7 +72,8 @@
             android:text="@string/login"
             android:textColor="@android:color/black"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold" 
+            android:visibility="invisible" />
 
         <RelativeLayout
             android:id="@+id/block1"
@@ -85,16 +86,17 @@
             <EditText
                 android:id="@+id/username"
                 android:layout_width="300dp"
+                android:hint="@string/username"
                 android:layout_height="wrap_content" />
 
-            <ImageView
+            <!-- <ImageView
                 android:id="@+id/userImage"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/iconname" />
+                android:background="@drawable/iconname" /> -->
         </RelativeLayout>
 
         <RelativeLayout
@@ -109,16 +111,17 @@
                 android:id="@+id/password"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content" 
+                android:hint="@string/password"
                 android:inputType="textPassword" />
 
-            <ImageView
+            <!-- <ImageView
                 android:id="@+id/passwordImage"
                 android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="5dp"
-                android:background="@drawable/iconpassword" />
+                android:background="@drawable/iconpassword" /> -->
         </RelativeLayout>
 
         <RelativeLayout

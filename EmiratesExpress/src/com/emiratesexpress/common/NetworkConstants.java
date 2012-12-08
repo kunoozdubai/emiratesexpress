@@ -51,6 +51,7 @@ public class NetworkConstants {
 	public static String AUTHORITY = "authority";
 	public static String AUTHORITY_AR = "authority_ar";
 	public static String TRANSACTION = "transaction";
+	public static String TRANSACTION_AR = "transaction_ar";
 	public static String DATE_POSTED = "dateposted";
 	
 	

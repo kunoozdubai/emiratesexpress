@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
+import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.pojos.Applications;
@@ -69,15 +70,24 @@ public class ApplicationsListViewAdapter extends BaseAdapter {
 			view = mInflater.inflate(R.layout.applications_list_item, parent, false);
 			viewHolder.transactionText = (TextView) view.findViewById(R.id.titleTxt);
 			viewHolder.authorityText = (TextView) view.findViewById(R.id.descriptionTxt);
-			
-			viewHolder.transactionText.setText(applicationsList.get(position).getTransaction());
-			viewHolder.authorityText.setText(applicationsList.get(position).getAuthority());
+			if(Configurations.currentLanguage == 1){
+				viewHolder.transactionText.setText(applicationsList.get(position).getTransaction());
+				viewHolder.authorityText.setText(applicationsList.get(position).getAuthority());
+			}else{
+				viewHolder.transactionText.setText(applicationsList.get(position).getTransactionAr());
+				viewHolder.authorityText.setText(applicationsList.get(position).getAuthorityAr());
+			}
 			
 			view.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) view.getTag();
-			viewHolder.transactionText.setText(applicationsList.get(position).getTransaction());
-			viewHolder.authorityText.setText(applicationsList.get(position).getAuthority());
+			if(Configurations.currentLanguage == 1){
+				viewHolder.transactionText.setText(applicationsList.get(position).getTransaction());
+				viewHolder.authorityText.setText(applicationsList.get(position).getAuthority());
+			}else{
+				viewHolder.transactionText.setText(applicationsList.get(position).getTransactionAr());
+				viewHolder.authorityText.setText(applicationsList.get(position).getAuthorityAr());
+			}
 		}
 
 		view.setTag(viewHolder);
