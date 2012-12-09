@@ -114,7 +114,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			User user = Parser.parseLoginResponse(response);
 			Configurations.user = user;
 			
@@ -122,7 +122,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 			if (!Utilities.isStringEmptyOrNull(userId)) {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
-				Toast.makeText(context, "Registration Successful " + user.getUserId(), Toast.LENGTH_SHORT).show();
+//				Toast.makeText(context, "Registration Successful " + user.getUserId(), Toast.LENGTH_SHORT).show();
 				ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
 				boolean isRemember = rememberMe.isChecked(); 
 				Utilities.setBooleanValuesToPreferences(context, CommonConstants.REMEMBER_ME, isRemember);
@@ -135,7 +135,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				}
 				finish();
 			} else {
-				Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "Error in Login. Please try again!", Toast.LENGTH_SHORT).show();
 			}
 
 		}

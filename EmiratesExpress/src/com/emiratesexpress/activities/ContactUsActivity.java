@@ -82,7 +82,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 
 			new DataDownloadTask(context, new ContactUsResponse(), NetworkConstants.EMIRATES_EXPRESS_CONTACT_US_URL, postData).execute();
 
-			Toast.makeText(context, "Send Button clicked", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "Send Button clicked", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -127,7 +127,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
 		}
 
 	}

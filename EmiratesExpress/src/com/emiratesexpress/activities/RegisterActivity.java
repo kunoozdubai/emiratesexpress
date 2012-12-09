@@ -97,7 +97,7 @@ public class RegisterActivity extends Activity implements OnClickListener {
 
 			new DataDownloadTask(context, new RegisterResponse(), NetworkConstants.EMIRATES_EXPRESS_URL, postData).execute();
 
-			Toast.makeText(context, "Register Button clicked", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "Register Button clicked", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -145,16 +145,16 @@ public class RegisterActivity extends Activity implements OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			String userId = Parser.parseRegisterationResponse(response);
 			if (!Utilities.isStringEmptyOrNull(userId)) {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
-				Toast.makeText(context, "Registration Successful " + userId, Toast.LENGTH_SHORT).show();
+//				Toast.makeText(context, "Registration Successful " + userId, Toast.LENGTH_SHORT).show();
 				User user = new User(userId, name, nameArabic, username, password, emailAddress, "", "", "", "",companyName);
 				Configurations.user = user;
 				finish();
 			} else {
-				Toast.makeText(context, "Registration Failed", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "Error in Registration. Please try again!", Toast.LENGTH_SHORT).show();
 			}
 		}
 

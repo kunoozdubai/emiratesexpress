@@ -137,13 +137,13 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			finish();
 		}
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
 		}
 
 	}

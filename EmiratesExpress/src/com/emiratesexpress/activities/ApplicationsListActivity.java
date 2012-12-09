@@ -199,7 +199,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			applicationsArrayList = Parser.parseApplicationResponse(response);
 			adapter = new ApplicationsListViewAdapter(context, applicationsArrayList);
 			myList = (ListView) findViewById(R.id.list);
@@ -211,7 +211,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
 
 		}
 	}
