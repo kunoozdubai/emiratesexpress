@@ -27,6 +27,10 @@
     <string name="name_in_arabic">Name in Arabic</string>
     <string name="logout">Logout</string>
     <string name="send_btn">Send</string>
+    <string name="applying_settings">Applying Settings, please wait!</string>
+    <string name="loading_please_wait">Loading, please wait!</string>
+    
+    
     
     
     
@@ -39,9 +43,7 @@
     <string name="comments_text">COMMENTS</string>
     <string name="description_text">DESCRIPTION</string>
     <string name="read_more_btn">Read More</string>
-    <string name="arabic">عربي</string>
-    <string name="choose_language">Choose Language</string>
-    
+    <string name="arabic">Arabic</string>
     <string name="track_application_btn">Track Application</string>
     <string name="about_us_desc_en">Established in 2006, Emirates Express Documents Clearing Company was the first accredited national company in the field of tracking and clearing documents, operating under the certified annual contracts system and providing “Public Relations Officer” service through a dedicated team of Emirati PROs.\n\nEmirates Express Documents Clearing Company is member of Emirates Express Group-Dubai which comprises a number of companies that aim to stimulate and activate a diversified economy in the United Arab Emirates and to render integrated services which enhance the efficiency of corporate performance and success.
 	</string>

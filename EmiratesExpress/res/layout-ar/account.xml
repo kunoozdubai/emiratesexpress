@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/contact_us"
+    android:id="@+id/account"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -19,7 +19,7 @@
         <Button
             android:id="@+id/backBtn"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
@@ -40,7 +40,7 @@
         <Button
             android:id="@+id/signOutBtn"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
@@ -130,7 +130,6 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
                     android:layout_marginLeft="3dp"
-                    android:layout_alignParentLeft="true"
                     android:text=""
                     android:textColor="#68676A"
                     android:textSize="16dp" />

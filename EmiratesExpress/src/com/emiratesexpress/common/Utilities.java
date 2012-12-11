@@ -30,8 +30,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.emiratesexpress.R;
 import com.emiratesexpress.activities.EmiratesExpressActivity;
 
 public class Utilities {
@@ -308,7 +310,7 @@ public class Utilities {
 		Location location = lm.getLastKnownLocation(bestProvider);
 
 		if (location == null) {
-			Toast.makeText(CommonConstants.EMIRATES_EXPRESS_CONTEXT, "Current Location Not found", Toast.LENGTH_LONG).show();
+//			Toast.makeText(CommonConstants.EMIRATES_EXPRESS_CONTEXT, "Current Location Not found", Toast.LENGTH_LONG).show();
 		} else {
 			geocoder = new Geocoder(CommonConstants.EMIRATES_EXPRESS_CONTEXT);
 			try {
@@ -348,12 +350,13 @@ public class Utilities {
 	}
 
 	public static void restartMainActivity(Context context) {
-		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).finish();
-		Intent intent = new Intent(context, EmiratesExpressActivity.class);
+//		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).finish();
+//		Intent intent = new Intent(context, EmiratesExpressActivity.class);
 //		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		// intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-		context.startActivity(intent);
+//		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//		context.startActivity(intent);
+		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).onCreate(null);
 	}
 
 }

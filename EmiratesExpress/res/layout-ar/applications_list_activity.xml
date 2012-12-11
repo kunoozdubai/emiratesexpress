@@ -20,7 +20,7 @@
         <Button
             android:id="@+id/backBtn"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"

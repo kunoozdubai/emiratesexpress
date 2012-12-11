@@ -3,6 +3,7 @@ package com.emiratesexpress.asynctask;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Utilities;
 
@@ -21,7 +22,7 @@ public class RestartingApplicationTask extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-		Utilities.showprogressDialog(context, "Applying Settings, please wait!");
+		Utilities.showprogressDialog(context, context.getString(R.string.applying_settings));
 	}
 
 	@Override

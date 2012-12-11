@@ -152,7 +152,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 	protected void onDestroy() {
 
 		context = null;
-		Utilities.unbindDrawables(findViewById(R.id.contact_us));
+		Utilities.unbindDrawables(findViewById(R.id.account));
 
 		super.onDestroy();
 	}

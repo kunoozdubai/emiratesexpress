@@ -33,14 +33,16 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
         context = this;
         CommonConstants.EMIRATES_EXPRESS_CONTEXT = context;
         
-        Configurations.user = new User();
+//        Configurations.user = new User();
         
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background, Utilities.getBitmapFactoryoptions(0));
-		BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
-		Utilities.imageMap.put("background", bitmapDrawable);
-		
-		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
-		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
+        if(Utilities.imageMap.get("background") == null){
+	        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background, Utilities.getBitmapFactoryoptions(1));
+			BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+			Utilities.imageMap.put("background", bitmapDrawable);
+			
+        }
+        ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
+        imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
         
         Button button = (Button) findViewById(R.id.loginRegisterBtn);
         button.setOnClickListener(this);
@@ -81,7 +83,7 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		Builder alertBuilder = new Builder(context);
 
 		alertBuilder.setTitle("");
-		alertBuilder.setMessage(getString(R.string.choose_language));
+		alertBuilder.setMessage("Choose Language");
 		
 		alertBuilder.setPositiveButton("English", new DialogInterface.OnClickListener() {
 			@Override
@@ -122,5 +124,8 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		super.onDestroy();
 		context = null;
 		Utilities.unbindDrawables(findViewById(R.id.emirates_express_activity));
+		System.gc();
+		//Killing application process on exit.
+		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 }

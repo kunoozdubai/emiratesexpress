@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import com.emiratesexpress.R;
 import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.network.JSONfunctions;
@@ -29,7 +30,7 @@ public class DataDownloadTask extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-		Utilities.showprogressDialog(context, "Loading, please wait");
+		Utilities.showprogressDialog(context, context.getString(R.string.loading_please_wait));
 	}
 
 	@Override

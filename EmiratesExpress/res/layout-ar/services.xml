@@ -19,7 +19,7 @@
         <Button
             android:id="@+id/backBtn"
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
@@ -117,7 +117,9 @@
                             android:gravity="right"
                             android:text="@string/services_documents_clearing_title_en"
                             android:textColor="@android:color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:singleLine="true" 
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt1"
@@ -125,6 +127,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt1"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg1"
                             android:gravity="right"
                             android:text="@string/services_documents_clearing_desc_en"
@@ -157,7 +160,9 @@
                             android:text="@string/services_businessmen_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt2"
@@ -165,6 +170,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt2"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg2"
                             android:text="@string/services_businessmen_desc_en"
                             android:textColor="@android:color/black" 
@@ -197,7 +203,9 @@
                             android:text="@string/services_typing_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt3"
@@ -205,6 +213,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt3"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg3"
                             android:text="@string/services_typing_desc_en"
                             android:textColor="@android:color/black" 
@@ -237,7 +246,9 @@
                             android:text="@string/services_photocopying_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt4"
@@ -245,6 +256,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt4"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg4"
                             android:text="@string/services_photocopying_desc_en"
                             android:textColor="@android:color/black" 
@@ -277,7 +289,9 @@
                             android:text="@string/services_translation_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt5"
@@ -285,6 +299,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt5"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg5"
                             android:text="@string/services_translation_desc_en"
                             android:textColor="@android:color/black" 
@@ -317,7 +332,9 @@
                             android:text="@string/services_vehicles_regisration_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt6"
@@ -325,6 +342,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt6"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg6"
                             android:text="@string/services_vehicles_regisration_desc_en"
                             android:textColor="@android:color/black" 
@@ -357,7 +375,9 @@
                             android:text="@string/services_car_embarkation_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" 
-                            android:gravity="right"/>
+                            android:gravity="right"
+                            android:singleLine="true"
+                            android:textSize="16dp"/>
 
                         <TextView
                             android:id="@+id/descTxt7"
@@ -365,6 +385,7 @@
                             android:layout_height="50dp"
                             android:layout_below="@id/titleTxt7"
                             android:layout_marginLeft="20dp"
+                            android:lines="2"
                             android:layout_toRightOf="@id/thumbImg7"
                             android:text="@string/services_car_embarkation_desc_en"
                             android:textColor="@android:color/black" 

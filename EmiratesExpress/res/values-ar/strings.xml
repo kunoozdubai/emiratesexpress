@@ -27,6 +27,8 @@
     <string name="name_in_arabic">الاسم في اللغة العربية</string>
     <string name="logout">خروج</string>
     <string name="send_btn">إرسال</string>
+    <string name="arabic">عربي</string>
+    
     
     <string name="authority_text">:سلطان</string>
     <string name="status_text">:حالة</string>
@@ -37,6 +39,10 @@
     <string name="comments_text">تعليقات</string>
     <string name="description_text">وصف</string>
     <string name="read_more_btn">اقرأ المزيد</string>
+    
+    <string name="applying_settings">تطبيق إعدادات، يرجى الانتظار</string>
+    <string name="loading_please_wait">التحميل، يرجى الانتظار</string>
+    
     <!-- <string name="choose_language">اختر اللغة</string> -->
     
     <string name="track_application_btn">تتبع التطبيق</string>
