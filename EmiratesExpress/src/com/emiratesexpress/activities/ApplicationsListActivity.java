@@ -200,7 +200,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		@Override
 		public void onSuccess(JSONObject response) {
 //			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
-			applicationsArrayList = Parser.parseApplicationResponse(response);
+			applicationsArrayList = Parser.parseApplicationResponse(response, context);
 			adapter = new ApplicationsListViewAdapter(context, applicationsArrayList);
 			myList = (ListView) findViewById(R.id.list);
 			myList.setAdapter(adapter);

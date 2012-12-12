@@ -30,7 +30,9 @@
     <string name="applying_settings">Applying Settings, please wait!</string>
     <string name="loading_please_wait">Loading, please wait!</string>
     
-    
+    <string name="approved">Approved</string>
+    <string name="in_process">In Process</string>
+    <string name="rejected">Rejected</string>
     
     
     

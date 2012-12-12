@@ -29,13 +29,17 @@
     <string name="send_btn">إرسال</string>
     <string name="arabic">عربي</string>
     
+    <string name="approved">وافق</string>
+    <string name="in_process">في عملية</string>
+    <string name="rejected">مرفوض</string>
     
-    <string name="authority_text">:سلطان</string>
-    <string name="status_text">:حالة</string>
-    <string name="service_fee_text">:رسوم الخدمة</string>
-    <string name="govt_fee_text">:الحكومة رسوم</string>
-    <string name="debit_text">:مدين</string>
-    <string name="old_balance_text">:الرصيد القديم</string>
+    
+    <string name="authority_text">سلطان:</string>
+    <string name="status_text">حالة:</string>
+    <string name="service_fee_text">رسوم الخدمة:</string>
+    <string name="govt_fee_text">الحكومة رسوم:</string>
+    <string name="debit_text">مدين:</string>
+    <string name="old_balance_text">الرصيد القديم:</string>
     <string name="comments_text">تعليقات</string>
     <string name="description_text">وصف</string>
     <string name="read_more_btn">اقرأ المزيد</string>

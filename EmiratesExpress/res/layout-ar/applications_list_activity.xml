@@ -38,9 +38,7 @@
             android:textSize="22dp"
             android:textStyle="bold" />
     </RelativeLayout>
-    
-    
-    
+
     <RelativeLayout
         android:id="@+id/mainParent"
         android:layout_width="wrap_content"
@@ -49,8 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:visibility="visible" >
-        
-        
+
         <RelativeLayout
             android:id="@+id/tempBlock"
             android:layout_width="200dp"
@@ -59,19 +56,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="12dp" >
-            </RelativeLayout>
-        
+        </RelativeLayout>
+
         <ListView
             android:id="@+id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titleParent"
-            android:layout_alignParentTop="true"
             android:layout_above="@id/tempBlock"
-            android:layout_weight="1.25"
-            >
+            android:layout_alignParentTop="true"
+            android:layout_below="@id/titleParent"
+            android:layout_weight="1.25" >
         </ListView>
-        
+
         <RelativeLayout
             android:id="@+id/block9"
             android:layout_width="200dp"
@@ -95,9 +91,6 @@
                 android:layout_alignParentRight="true"
                 android:background="@drawable/img_down_btn" />
         </RelativeLayout>
-        
-        
-        
     </RelativeLayout>
 
     <RelativeLayout
@@ -135,28 +128,39 @@
                 android:id="@+id/authorityText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/authority_text"
                 android:textColor="#FF0000"
                 android:textSize="16dp"
-                android:textStyle="bold" 
-                />
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/authority"
+            <ScrollView
+                android:id="@+id/authorityScrollView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
                 android:layout_marginRight="7dp"
-                android:layout_marginLeft="3dp"
                 android:layout_toLeftOf="@id/authorityText"
-                android:text=""
-                android:textColor="#68676A"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+                android:scrollbars="none" >
+
+                <TextView
+                    android:id="@+id/authority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="7dp"
+                    android:layout_toLeftOf="@id/authorityText"
+                    android:text=""
+                    android:textColor="#68676A"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+            </ScrollView>
         </RelativeLayout>
 
         <RelativeLayout
@@ -172,9 +176,9 @@
                 android:id="@+id/statusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/status_text"
                 android:textColor="#FF0000"
@@ -207,9 +211,9 @@
                 android:id="@+id/serviceFeeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/service_fee_text"
                 android:textColor="#FF0000"
@@ -242,9 +246,9 @@
                 android:id="@+id/govtFeeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/govt_fee_text"
                 android:textColor="#FF0000"
@@ -277,9 +281,9 @@
                 android:id="@+id/debitText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/debit_text"
                 android:textColor="#FF0000"
@@ -312,9 +316,9 @@
                 android:id="@+id/oldBalanceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
                 android:gravity="right"
                 android:text="@string/old_balance_text"
                 android:textColor="#FF0000"
@@ -442,8 +446,8 @@
                 android:layout_width="300dp"
                 android:layout_height="110dp"
                 android:layout_below="@id/descriptionText"
-                android:background="@drawable/cellbg2" 
-                android:scrollbars="none">
+                android:background="@drawable/cellbg2"
+                android:scrollbars="none" >
 
                 <RelativeLayout
                     android:layout_width="fill_parent"

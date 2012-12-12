@@ -6,6 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
+
+import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.pojos.Applications;
@@ -83,7 +86,7 @@ public class Parser {
 		return user;
 	}
 
-	public static ArrayList<Applications> parseApplicationResponse(JSONObject response) {
+	public static ArrayList<Applications> parseApplicationResponse(JSONObject response, Context context) {
 
 		int size = 0;
 		ArrayList<Applications> applicationList = null;
@@ -164,11 +167,11 @@ public class Parser {
 				if (!response.isNull(NetworkConstants.STATUS)) {
 					int value = Integer.parseInt(response.getString(NetworkConstants.STATUS));
 					if (value == CommonConstants.APPROVED) {
-						status = "Approved";
+						status = context.getString(R.string.approved);
 					} else if (value == CommonConstants.IN_PROCESS) {
-						status = "In Process";
+						status = context.getString(R.string.in_process);
 					} else if (value == CommonConstants.REJECTED) {
-						status = "Rejected";
+						status = context.getString(R.string.rejected);
 					}
 				}
 				if (!response.isNull(NetworkConstants.AUTHORITY)) {
