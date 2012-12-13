@@ -70,11 +70,11 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 			
 
 			if (Utilities.isArrayValuesEmptyOrNull(array)) {
-				Toast.makeText(context, "All fields are mandatory", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (!Utilities.isValidEmail(emailAddress)) {
-				Toast.makeText(context, "Email address not valid", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
 				return;
 			}
 
@@ -121,13 +121,14 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "Your request has been subitted", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, getString(R.string.contact_us_send), Toast.LENGTH_SHORT).show();
 			finish();
 		}
 
 		@Override
 		public void onError(JSONObject response) {
-//			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, getString(R.string.contact_us_send), Toast.LENGTH_SHORT).show();
+			finish();
 		}
 
 	}

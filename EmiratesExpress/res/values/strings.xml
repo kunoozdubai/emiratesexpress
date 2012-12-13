@@ -29,6 +29,11 @@
     <string name="send_btn">Send</string>
     <string name="applying_settings">Applying Settings, please wait!</string>
     <string name="loading_please_wait">Loading, please wait!</string>
+    <string name="contact_us_send">Thankyou for contacting us!</string>
+    <string name="all_fields_required">All fields are mandatory</string>
+    <string name="invalid_email">Email address not valid</string>
+    <string name="registration_error">Error in Registration. Please try again!</string>
+    <string name="password_error">Password fields do not match</string>
     
     <string name="approved">Approved</string>
     <string name="in_process">In Process</string>

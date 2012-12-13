@@ -80,16 +80,16 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			array[6] = nameArabic;
 
 			if (Utilities.isArrayValuesEmptyOrNull(array)) {
-				Toast.makeText(context, "All fields are mendatory", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
 				return;
 			}
 
 			if (!confirmPassword.equals(password)) {
-				Toast.makeText(context, "Password fields do not match", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.password_error), Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (!Utilities.isValidEmail(emailAddress)) {
-				Toast.makeText(context, "Email address not valid", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
 				return;
 			}
 
@@ -154,13 +154,13 @@ public class RegisterActivity extends Activity implements OnClickListener {
 				Configurations.user = user;
 				finish();
 			} else {
-				Toast.makeText(context, "Error in Registration. Please try again!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, getString(R.string.registration_error), Toast.LENGTH_SHORT).show();
 			}
 		}
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "Error in Registration. Please try again!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, getString(R.string.registration_error), Toast.LENGTH_SHORT).show();
 		}
 
 	}
