@@ -8,68 +8,86 @@
     <ImageView
         android:id="@+id/backgourndImg"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-         />
+        android:layout_height="fill_parent" />
 
     <RelativeLayout
         android:id="@+id/titleParent"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:background="#FF0000" >
-        
+
         <TextView
             android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/main_screen_title"
-            android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:textSize="22dp"
-            android:textColor="@android:color/white" />
+            android:textStyle="bold" />
 
-        
         <Button
             android:id="@+id/settingsBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-            android:background="@drawable/settings"
-            />
-        
+            android:background="@drawable/settings" />
     </RelativeLayout>
-    
-    
-    <RelativeLayout
-        android:id="@+id/mainParent"
+
+    <ScrollView
+        android:id="@+id/mainParentScrollView"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-       
-        android:layout_centerInParent="true">
-        <Button
-            android:id="@+id/aboutBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/about"
-            android:layout_marginTop="5dp"
-            />
-        
-        
-        
-        <Button
-            android:id="@+id/servicesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/services"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/aboutBtn"
-            />
-        
-        
-        <!-- <Button
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/titleParent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:id="@+id/mainParent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+             >
+
+            <Button
+                android:id="@+id/aboutBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/about" />
+            
+            <Button
+                android:id="@+id/expressGroupBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/aboutBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Express grp"
+                />
+            
+            <Button
+                android:id="@+id/businessSetupGuideBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/expressGroupBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="business guide"
+                />
+
+            <Button
+                android:id="@+id/servicesBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/businessSetupGuideBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/services" />
+
+            <!--
+             <Button
             android:id="@+id/howToBtn"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
@@ -77,31 +95,48 @@
             android:background="@drawable/howto"
             android:layout_marginTop="5dp"
             android:layout_below="@id/servicesBtn"
-            /> -->
-        
-        
-        <Button
-            android:id="@+id/loginRegisterBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/login_register"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/servicesBtn"
             />
-        
-        <Button
-            android:id="@+id/contactUsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/contactus"
-            android:layout_marginTop="5dp"
-            android:layout_below="@id/loginRegisterBtn"
-            />
-        
-        
-    </RelativeLayout>
+            -->
 
+            <Button
+                android:id="@+id/loginRegisterBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/servicesBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/login_register" />
+            
+            <Button
+                android:id="@+id/economicNewsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/loginRegisterBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Economic news"
+                />
+            
+
+            <Button
+                android:id="@+id/contactUsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/economicNewsBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/contactus" />
+            
+            <Button
+                android:id="@+id/careerBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/contactUsBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="careers"
+                />
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

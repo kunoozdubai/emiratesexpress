@@ -54,6 +54,14 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
         button.setOnClickListener(this);
         button = (Button) findViewById(R.id.settingsBtn);
         button.setOnClickListener(this);
+        button = (Button) findViewById(R.id.expressGroupBtn);
+        button.setOnClickListener(this);
+        button = (Button) findViewById(R.id.businessSetupGuideBtn);
+        button.setOnClickListener(this);
+        button = (Button) findViewById(R.id.careerBtn);
+        button.setOnClickListener(this);
+        button = (Button) findViewById(R.id.economicNewsBtn);
+        button.setOnClickListener(this);
         
         
     }
@@ -72,6 +80,14 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.contactUsBtn){
 			Intent intent = new Intent(context, ContactUsActivity.class);
 			startActivity(intent);
+		}else if(id == R.id.careerBtn){
+			
+		}else if(id == R.id.businessSetupGuideBtn){
+			
+		}else if(id == R.id.expressGroupBtn){
+			
+		}else if(id == R.id.economicNewsBtn){
+			
 		}else if(id == R.id.settingsBtn){
 			createAlertDialogForLanguage();
 		}

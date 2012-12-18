@@ -9,6 +9,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -44,6 +46,23 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		button.setOnClickListener(this);
 		
 		this.setOnKeyListener(aboutUsKeyListener);
+		
+		String aboutUsUrl = "file:///android_asset/en/aboutus.html";
+		
+		if(Utilities.getLocale().equals("ar")){
+			aboutUsUrl = "file:///android_asset/ar/aboutus-ar.html";
+		}
+		WebView webView	= (WebView) findViewById(R.id.webView);
+		
+		WebSettings settings= webView.getSettings();
+		settings.setBuiltInZoomControls(true);
+		settings.setSupportZoom(true);
+		settings.setJavaScriptEnabled(true);
+		settings.setLoadWithOverviewMode(true);
+		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+		webView.setScrollbarFadingEnabled(true);
+		webView.loadUrl(aboutUsUrl);
+		
 		
 
 	}

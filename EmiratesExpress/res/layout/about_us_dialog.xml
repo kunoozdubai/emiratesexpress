@@ -42,51 +42,15 @@
         android:id="@+id/mainParent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/titleParent"
-        android:layout_marginTop="10dp" >
+        android:layout_below="@id/titleParent" >
 
-        <ImageView
-            android:id="@+id/aboutUsImg"
+        <WebView
+            android:id="@+id/webView"
             android:layout_width="fill_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/about_us_en" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/aboutUsImg"
-            android:layout_margin="3dp"
-            android:layout_centerHorizontal="true" 
-            android:background="@drawable/back">
-
-            <ScrollView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" 
-                android:layout_marginBottom="5dp" >
-
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" 
-                    android:layout_marginBottom="5dp">
-
-                    <TextView
-                        android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="10dp"
-                        android:gravity="left"
-                        android:text="@string/about_us_desc_en"
-                        android:textColor="@android:color/black" >
-                    </TextView>
-                </RelativeLayout>
-            </ScrollView>
-        </RelativeLayout>
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@android:color/transparent"></WebView>
+            <!-- android:scrollbarAlwaysDrawVerticalTrack="false" --> 
     </RelativeLayout>
 
 </RelativeLayout>

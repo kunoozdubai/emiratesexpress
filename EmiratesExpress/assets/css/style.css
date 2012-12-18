@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	line-height: 22px;
+}
+
+#wrapper{
+	width: 96%;
+}
+h2{
+	color: #DD1C25;
+}
+h3{
+	font-style:italic;
+	color: #666;
+}
+
+.thumbs{
+	padding: 3px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin: 0px 0px 0px 20px;
+}

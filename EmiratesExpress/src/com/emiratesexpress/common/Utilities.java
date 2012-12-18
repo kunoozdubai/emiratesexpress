@@ -346,7 +346,16 @@ public class Utilities {
 		Locale.setDefault(locale);
 		Configuration config = new Configuration();
 		config.locale = locale;
+		
 		CommonConstants.EMIRATES_EXPRESS_CONTEXT.getApplicationContext().getResources().updateConfiguration(config, null);
+	}
+	
+	public static String getLocale() {
+		Configuration config = CommonConstants.EMIRATES_EXPRESS_CONTEXT.getApplicationContext().getResources().getConfiguration();
+		Locale locale = config.locale;
+		return locale.getLanguage();
+		
+		
 	}
 
 	public static void restartMainActivity(Context context) {
