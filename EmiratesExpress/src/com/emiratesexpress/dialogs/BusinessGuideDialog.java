@@ -17,18 +17,18 @@ import android.widget.ImageView;
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
 
-public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCancelListener {
-	private View aboutUsView;
+public class BusinessGuideDialog extends Dialog implements View.OnClickListener, OnCancelListener {
+	private View businessGuideView;
 	private Context context = null;
 	private Activity activity;
 
-	public AboutUsDialog(Context context) {
+	public BusinessGuideDialog(Context context) {
 		super(context, R.style.preview);
 		this.context = context;
 		activity = (Activity) this.context;
 		LayoutInflater layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		aboutUsView = layoutInflater.inflate(R.layout.about_us_dialog, (ViewGroup) activity.findViewById(R.layout.emirates_express_activity));
-		setContentView(aboutUsView);
+		businessGuideView = layoutInflater.inflate(R.layout.business_guide_dialog, (ViewGroup) activity.findViewById(R.layout.emirates_express_activity));
+		setContentView(businessGuideView);
 		
 	}
 
@@ -39,18 +39,18 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 	}
 
 	private void initializeViews() {
-		ImageView imageView = (ImageView) aboutUsView.findViewById(R.id.backgourndImg);
+		ImageView imageView = (ImageView) businessGuideView.findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 
-		Button button = (Button) aboutUsView.findViewById(R.id.backBtn);
+		Button button = (Button) businessGuideView.findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		
-		this.setOnKeyListener(aboutUsKeyListener);
+		this.setOnKeyListener(businessGuideKeyListener);
 		
-		String aboutUsUrl = "file:///android_asset/en/aboutus.html";
+		String businessGuideUrl = "file:///android_asset/en/business_setup.html";
 		
 		if(Utilities.getLocale().equals("ar")){
-			aboutUsUrl = "file:///android_asset/ar/aboutus-ar.html";
+			businessGuideUrl = "file:///android_asset/ar/business_setup-ar.html";
 		}
 		WebView webView	= (WebView) findViewById(R.id.webView);
 		
@@ -61,7 +61,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		settings.setLoadWithOverviewMode(true);
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 		webView.setScrollbarFadingEnabled(true);
-		webView.loadUrl(aboutUsUrl);
+		webView.loadUrl(businessGuideUrl);
 
 	}
 
@@ -79,7 +79,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		}
 	}
 
-	private OnKeyListener aboutUsKeyListener = new OnKeyListener() {
+	private OnKeyListener businessGuideKeyListener = new OnKeyListener() {
 		@Override
 		public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
 			if (keyCode == KeyEvent.KEYCODE_SEARCH || keyCode == KeyEvent.KEYCODE_MENU) {
@@ -99,7 +99,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 	public void onCancel(DialogInterface dialog) {
 		context = null;
 		activity = null;
-		Utilities.unbindDrawables(findViewById(R.id.about_us_dialog));
+		Utilities.unbindDrawables(findViewById(R.id.business_guide_dialog));
 	}
 
 }

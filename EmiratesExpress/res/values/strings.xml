@@ -81,6 +81,60 @@
 	<string name="services_car_embarkation_title_en">Car Embarkation Services</string>
 	<string name="services_car_embarkation_desc_en">Includes offices that will operate on the issuance of papers and necessary documents for driving personal cars outside the country or for shipment or has passed the international border by such as issuing international driving licenses and the issuance of tickets for freight cars and the books of international traffic (Trip Ticket) in accordance with the AIT / FIA.
 	</string>
+	
+	<string name="group_documents_clearing_title_en">Emirates Express Document Clearing</string>
+	<string name="group_documents_clearing_desc_en">License Activities: Vehicles Registration Services, Documents Copying Services, Typing &amp; Photocopying Services, Translation Services, Documents Clearing Services, Businessmen Services.
+
+Includes firms which undertake to submit documents of commercial and personal transactions belonging to others to government and non-government bodies and following up these documents pending finalization of their formalities. 
+
+Includes firms engaged in providing to businessmen secretarial services, shorthand writing, minutes taking as well as managing their affairs by means of scheduling their time, airline booking, hotel reservation, receive and see off at the airport, arrange their meetings with other parties. Includes firms which carry out the copying of documents, whether printed, audio or video taped, photographed, microfilmed or otherwise. These firms may use their own facilities or those of other firms. 
+
+This includes offices which provide simple translation for ordinary personal and commercial letters and correspondences. This also includes services related to translation such as proofreading, typing, photocopying, attestation of documents etc. 
+
+Includes firms undertaking vehicles registration at traffic departments on behalf of other individuals and companies, involving mechanical testing at the specialized workshops and at the testing centers of the traffic departments, then to handle all the registration formalities.</string>
+
+	
+	<string name="group_public_relation_title_en">Public Relation Management</string>
+	<string name="group_public_relation_desc_en">License Includes firms perform as connecting link between commercial entities and the media to introduce and shed light on their activities and achievements as well as promoting corporate image through leaflets, produce information reflecting transparency, establish positive relations with customers by visits and participation in gatherings, enhance their employees sense of belonging.</string>
+	
+<string name="group_trading_llc_title_en">Emirates Express Trading LLC</string>
+	<string name="group_trading_llc_desc_en">License Activities: Power Generation, Transmission &amp; Distribution Equipment Trading 
+
+Includes reselling of power stations turbines, generators, and reactors, transmission and feed equipment, distribution keys, panels, current rectifiers, control systems and others for private or public use.</string>	
         
-    
+	<string name="group_commercial_broker_title_en">Emirates Express Commercial Broker</string>
+	<string name="group_commercial_broker_desc_en">License License Activities: Commercial Brokers 
+
+Includes firms that play as negotiator or intermediary between the contract"'"s parties to get their points of view closer to each other, conclude sale and purchase contracts in own name for the account of a third party, such a contract is called broker contract and usually in return of a commission or remuneration paid by the third party, also, these firms that can make sale and purchase contracts exclusively on their own names, while transactions are being executed for the account of other par</string>
+
+	
+	<string name="group_building_house_cleaning_title_en">Building &amp; House Cleaning Services</string>
+	<string name="group_building_house_cleaning_desc_en">License License Activities: Building Cleaning Services 
+
+Includes firms which provide cleaning services to residential buildings, commercial and government offices etc. These services include cleaning floors, surfaces and glass and sweeping outer areas etc.</string>
+	
+    <string name="group_tech_trade_title_en">Middle East Technology and Trade</string>
+	<string name="group_tech_trade_desc_en">License License Activities: Auto Spare Parts &amp; Components Trading, Auto Accessories Trading, Tires &amp; Rims Trading, Used Auto Spare Parts &amp; Requisites Trading, Batteries Trading, Off Road Karts &amp; Spare Parts Trading 
+
+Includes reselling spare parts and to use fully or partially in repairing and maintaining motor vehicles, buses, trucks and trailers and other relevant requisites including oils, detergents, paints... Etc... 
+
+Includes the reselling accessories fitted in cars and vehicles such as, additional bumpers to adjust exterior, air deflectors to increase the car"'"s efficiency , baggage loading racks to diversify the car"'"s use , as well as sun and rain protectors and small trailers, also, devices fitted in public service vehicles such as police, ambulances and fire engines. 
+
+Includes reselling of various types of tires and requisites including casings, rims and tubes. 
+
+Includes reselling power generation and storage batteries for cars, boats, motorcycles and other machinery 
+
+Includes reselling three or four wheeled vehicles which run by petrol and used for recreation and sports, also, spare parts and components.</string>
+
+	    <string name="group_technologies_trading_title_en">Middle East Technologies &amp; Trading</string>
+	<string name="group_technologies_trading_desc_en">License License Activities: Automobile Trading, Buses, Trucks Trading, Used Vehicles Trading, Motorcycles &amp; Spare Parts Trading, Trailers Trading 
+
+Includes reselling of motor vehicle for personal passenger use, or for commercial use including rental and taxi services. Includes reselling different passenger buses, as well as trucks and trailers for the transporting goods, liquid substances, building materials�etc.</string>
+	
+
+	<string name="group_general_trading_title_en">Saqerko General Trading LLC</string>
+	<string name="group_general_trading_desc_en">License Activities: General Trading 
+
+Includes commercial firms engaged in importing, trading and re-exporting of any of the goods and products mentioned in details in trade category.</string>
+		
 </resources>

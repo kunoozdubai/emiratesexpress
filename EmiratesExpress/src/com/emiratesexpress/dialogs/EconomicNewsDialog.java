@@ -17,18 +17,18 @@ import android.widget.ImageView;
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
 
-public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCancelListener {
-	private View aboutUsView;
+public class EconomicNewsDialog extends Dialog implements View.OnClickListener, OnCancelListener {
+	private View economicNewsView;
 	private Context context = null;
 	private Activity activity;
 
-	public AboutUsDialog(Context context) {
+	public EconomicNewsDialog(Context context) {
 		super(context, R.style.preview);
 		this.context = context;
 		activity = (Activity) this.context;
 		LayoutInflater layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		aboutUsView = layoutInflater.inflate(R.layout.about_us_dialog, (ViewGroup) activity.findViewById(R.layout.emirates_express_activity));
-		setContentView(aboutUsView);
+		economicNewsView = layoutInflater.inflate(R.layout.economic_news_dialog, (ViewGroup) activity.findViewById(R.layout.emirates_express_activity));
+		setContentView(economicNewsView);
 		
 	}
 
@@ -39,18 +39,18 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 	}
 
 	private void initializeViews() {
-		ImageView imageView = (ImageView) aboutUsView.findViewById(R.id.backgourndImg);
+		ImageView imageView = (ImageView) economicNewsView.findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 
-		Button button = (Button) aboutUsView.findViewById(R.id.backBtn);
+		Button button = (Button) economicNewsView.findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		
-		this.setOnKeyListener(aboutUsKeyListener);
+		this.setOnKeyListener(economicsNewsKeyListener);
 		
-		String aboutUsUrl = "file:///android_asset/en/aboutus.html";
+		String economicNewsUrl = "http://www.zawya.com/mobile/";
 		
 		if(Utilities.getLocale().equals("ar")){
-			aboutUsUrl = "file:///android_asset/ar/aboutus-ar.html";
+			economicNewsUrl = "http://www.zawya.com/mobile/";
 		}
 		WebView webView	= (WebView) findViewById(R.id.webView);
 		
@@ -61,7 +61,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		settings.setLoadWithOverviewMode(true);
 		webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 		webView.setScrollbarFadingEnabled(true);
-		webView.loadUrl(aboutUsUrl);
+		webView.loadUrl(economicNewsUrl);
 
 	}
 
@@ -79,7 +79,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		}
 	}
 
-	private OnKeyListener aboutUsKeyListener = new OnKeyListener() {
+	private OnKeyListener economicsNewsKeyListener = new OnKeyListener() {
 		@Override
 		public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
 			if (keyCode == KeyEvent.KEYCODE_SEARCH || keyCode == KeyEvent.KEYCODE_MENU) {
@@ -99,7 +99,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 	public void onCancel(DialogInterface dialog) {
 		context = null;
 		activity = null;
-		Utilities.unbindDrawables(findViewById(R.id.about_us_dialog));
+		Utilities.unbindDrawables(findViewById(R.id.economic_news_dialog));
 	}
 
 }

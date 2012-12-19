@@ -20,6 +20,8 @@ import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Configurations;
 import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.dialogs.AboutUsDialog;
+import com.emiratesexpress.dialogs.BusinessGuideDialog;
+import com.emiratesexpress.dialogs.EconomicNewsDialog;
 import com.emiratesexpress.pojos.User;
 
 public class EmiratesExpressActivity extends Activity implements OnClickListener {
@@ -83,11 +85,11 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.careerBtn){
 			
 		}else if(id == R.id.businessSetupGuideBtn){
-			
+			new BusinessGuideDialog(context).show();
 		}else if(id == R.id.expressGroupBtn){
 			
 		}else if(id == R.id.economicNewsBtn){
-			
+			new EconomicNewsDialog(context).show();
 		}else if(id == R.id.settingsBtn){
 			createAlertDialogForLanguage();
 		}
