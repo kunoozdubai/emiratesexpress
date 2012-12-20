@@ -27,6 +27,7 @@
     <string name="name_in_arabic">Name in Arabic</string>
     <string name="logout">Logout</string>
     <string name="send_btn">Send</string>
+    <string name="contact_btn">Contact</string>
     <string name="applying_settings">Applying Settings, please wait!</string>
     <string name="loading_please_wait">Loading, please wait!</string>
     <string name="contact_us_send">Thankyou for contacting us!</string>

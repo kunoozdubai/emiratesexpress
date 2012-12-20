@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/services"
+    android:id="@+id/group_companies"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -52,8 +52,8 @@
             android:background="@drawable/barbtn"
             android:gravity="center"
             android:text="@string/contact_btn"
-            android:textColor="@android:color/white" 
-            android:visibility="gone"/>
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -119,7 +119,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_document_clearing_en" />
+                            android:background="@drawable/group_document_clearing_en_1" />
 
                         <TextView
                             android:id="@+id/titleTxt1"
@@ -128,7 +128,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg1"
-                            android:text="@string/services_documents_clearing_title_en"
+                            android:text="@string/group_documents_clearing_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -139,7 +139,7 @@
                             android:layout_below="@id/titleTxt1"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg1"
-                            android:text="@string/services_documents_clearing_desc_en"
+                            android:text="@string/group_documents_clearing_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -157,7 +157,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_businessmen_en" />
+                            android:background="@drawable/group_public_relation_en_2" />
 
                         <TextView
                             android:id="@+id/titleTxt2"
@@ -166,7 +166,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg2"
-                            android:text="@string/services_businessmen_title_en"
+                            android:text="@string/group_public_relation_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -177,7 +177,7 @@
                             android:layout_below="@id/titleTxt2"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg2"
-                            android:text="@string/services_businessmen_desc_en"
+                            android:text="@string/group_public_relation_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -195,7 +195,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_typing_en" />
+                            android:background="@drawable/group_trading_activities_en_3" />
 
                         <TextView
                             android:id="@+id/titleTxt3"
@@ -204,7 +204,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg3"
-                            android:text="@string/services_typing_title_en"
+                            android:text="@string/group_trading_llc_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -215,7 +215,7 @@
                             android:layout_below="@id/titleTxt3"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg3"
-                            android:text="@string/services_typing_desc_en"
+                            android:text="@string/group_trading_llc_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -233,7 +233,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_photocopying_en" />
+                            android:background="@drawable/group_commercial_broker_en_4" />
 
                         <TextView
                             android:id="@+id/titleTxt4"
@@ -242,7 +242,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg4"
-                            android:text="@string/services_photocopying_title_en"
+                            android:text="@string/group_commercial_broker_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -253,7 +253,7 @@
                             android:layout_below="@id/titleTxt4"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg4"
-                            android:text="@string/services_photocopying_desc_en"
+                            android:text="@string/group_commercial_broker_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -271,7 +271,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_translation_en" />
+                            android:background="@drawable/group_building_housing_cleaning_en_5" />
 
                         <TextView
                             android:id="@+id/titleTxt5"
@@ -280,7 +280,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg5"
-                            android:text="@string/services_translation_title_en"
+                            android:text="@string/group_building_house_cleaning_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -291,7 +291,7 @@
                             android:layout_below="@id/titleTxt5"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg5"
-                            android:text="@string/services_translation_desc_en"
+                            android:text="@string/group_building_house_cleaning_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -309,7 +309,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_vehicle_registration_en" />
+                            android:background="@drawable/group_me_tech_trade_en_6" />
 
                         <TextView
                             android:id="@+id/titleTxt6"
@@ -318,7 +318,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg6"
-                            android:text="@string/services_vehicles_regisration_title_en"
+                            android:text="@string/group_tech_trade_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -329,7 +329,7 @@
                             android:layout_below="@id/titleTxt6"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg6"
-                            android:text="@string/services_vehicles_regisration_desc_en"
+                            android:text="@string/group_tech_trade_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
 
@@ -347,7 +347,7 @@
                             android:layout_height="58dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
-                            android:background="@drawable/service_car_embarkation_en" />
+                            android:background="@drawable/group_me_technologies_trading_en_7" />
 
                         <TextView
                             android:id="@+id/titleTxt7"
@@ -356,7 +356,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg7"
-                            android:text="@string/services_car_embarkation_title_en"
+                            android:text="@string/group_technologies_trading_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
@@ -367,9 +367,49 @@
                             android:layout_below="@id/titleTxt7"
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg7"
-                            android:text="@string/services_car_embarkation_desc_en"
+                            android:text="@string/group_technologies_trading_desc_en"
                             android:textColor="@android:color/black" />
                     </RelativeLayout>
+                    
+                    <RelativeLayout
+                        android:id="@+id/block9"
+                        android:layout_width="300dp"
+                        android:layout_height="80dp"
+                        android:layout_below="@id/block7"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/cellbg" >
+
+                        <ImageView
+                            android:id="@+id/thumbImg9"
+                            android:layout_width="58dp"
+                            android:layout_height="58dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@drawable/group_saqerko_general_trading_en_8" />
+
+                        <TextView
+                            android:id="@+id/titleTxt9"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="7dp"
+                            android:layout_toRightOf="@id/thumbImg9"
+                            android:text="@string/group_general_trading_title_en"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/descTxt9"
+                            android:layout_width="200dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@id/titleTxt9"
+                            android:layout_marginLeft="20dp"
+                            android:layout_toRightOf="@id/thumbImg9"
+                            android:text="@string/group_general_trading_desc_en"
+                            android:textColor="@android:color/black" />
+                    </RelativeLayout>
+                    
+                    
                 </RelativeLayout>
             </ScrollView>
         </RelativeLayout>
@@ -402,10 +442,11 @@
         <TextView
             android:id="@+id/serviceTitle"
             android:layout_width="200dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_alignBaseline="@id/serviceImgParent"
             android:layout_marginRight="2dp"
             android:layout_marginTop="45dp"
+            android:lines="2"
             android:layout_toRightOf="@id/serviceImgParent"
             android:background="@drawable/service_title_bg"
             android:gravity="center"

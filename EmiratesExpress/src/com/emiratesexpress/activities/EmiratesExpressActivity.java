@@ -87,7 +87,8 @@ public class EmiratesExpressActivity extends Activity implements OnClickListener
 		}else if(id == R.id.businessSetupGuideBtn){
 			new BusinessGuideDialog(context).show();
 		}else if(id == R.id.expressGroupBtn){
-			
+			Intent intent = new Intent(context, GroupCompaniesActivity.class);
+			startActivity(intent);
 		}else if(id == R.id.economicNewsBtn){
 			new EconomicNewsDialog(context).show();
 		}else if(id == R.id.settingsBtn){
