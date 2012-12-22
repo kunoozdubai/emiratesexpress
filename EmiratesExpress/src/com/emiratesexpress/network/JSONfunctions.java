@@ -1,6 +1,8 @@
 package com.emiratesexpress.network;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -22,6 +24,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
+
+import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Utilities;
 
 public class JSONfunctions {
@@ -161,6 +168,13 @@ public class JSONfunctions {
 			connection.setConnectTimeout(15000);
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.getOutputStream().write(postData.getBytes());
+			/*File file = new File(CommonConstants.CAREER_IMAGE_PATH);
+			if (file.exists()) {
+			
+			}else{
+				
+			}*/
+			
 
 		} catch (MalformedURLException malFormedExp) {
 			malFormedExp.printStackTrace();
@@ -193,4 +207,5 @@ public class JSONfunctions {
 
 	}
 
+	
 }

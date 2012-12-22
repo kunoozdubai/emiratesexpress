@@ -21,6 +21,11 @@
     <string name="password">كلمة السر</string>
     <string name="re_enter_password">أدخل كلمة المرور من جديد</string>
     <string name="company_name">الشركة</string>
+    <string name="nationality">جنسية</string>
+    <string name="mobile">موبايل</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="take_photo">تأخذ الصورة</string>
     <string name="email_address">البريد الإلكتروني</string>
     <string name="name">الاسم</string>
     <string name="name_in_arabic">الاسم في اللغة العربية</string>
@@ -29,6 +34,7 @@
     <string name="contact_btn">اتصل بنا</string>
     <string name="arabic">عربي</string>
     <string name="contact_us_send">الشكر على الاتصال بنا</string>
+    <string name="thankyou">شكر</string>
     <string name="all_fields_required">جميع الحقول إلزامية</string>
     <string name="invalid_email">عنوان البريد الإلكتروني غير صالح</string>
     <string name="registration_error">خطأ في التسجيل. يرجى المحاولة مرة أخرى</string>

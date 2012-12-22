@@ -15,6 +15,7 @@ public class NetworkConstants {
 	
 	public static String EMIRATES_EXPRESS_URL = "http://www.emexgr.ae/index.php";
 	public static String EMIRATES_EXPRESS_CONTACT_US_URL = "http://emexgr.ae/contactus.html";
+	public static String EMIRATES_EXPRESS_CAREERS_URL = "http://emexgr.ae/careers.html";
 	
 	
 	public static String VIEW_APP_LOGIN = "applogin";
@@ -30,6 +31,7 @@ public class NetworkConstants {
 	public static String C_PASSWORD = "cpassword";
 	public static String EMAIL = "email";
 	public static String NAME = "name";
+	public static String COUNTRY = "country";
 	public static String NAME_AR = "name_ar";
 	public static String USERID = "userId";
 	public static String MESSAGE = "message";
@@ -38,6 +40,7 @@ public class NetworkConstants {
 	public static String CREATED = "created";
 	public static String USER_TYPE = "userType";
 	public static String MOBILE = "mobile";
+	public static String GENDER = "gender";
 	
 	public static String TRANS_ID = "transId";
 	public static String TRANS_TYPE_ID = "transTypeId";
@@ -53,6 +56,7 @@ public class NetworkConstants {
 	public static String TRANSACTION = "transaction";
 	public static String TRANSACTION_AR = "transaction_ar";
 	public static String DATE_POSTED = "dateposted";
+	public static String FILE_ATT = "fileatt";
 	
 	
 

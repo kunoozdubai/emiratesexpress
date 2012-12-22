@@ -22,8 +22,13 @@
     <string name="password">Password</string>
     <string name="re_enter_password">Re-enter Password</string>
     <string name="company_name">COMPANY</string>
+    <string name="nationality">NATIONALITY</string>
+    <string name="mobile">MOBILE</string>
     <string name="email_address">EMAIL</string>
     <string name="name">NAME</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="take_photo">Take Photo</string>
     <string name="name_in_arabic">Name in Arabic</string>
     <string name="logout">Logout</string>
     <string name="send_btn">Send</string>
@@ -31,6 +36,7 @@
     <string name="applying_settings">Applying Settings, please wait!</string>
     <string name="loading_please_wait">Loading, please wait!</string>
     <string name="contact_us_send">Thankyou for contacting us!</string>
+    <string name="thankyou">Thankyou!</string>
     <string name="all_fields_required">All fields are mandatory</string>
     <string name="invalid_email">Email address not valid</string>
     <string name="registration_error">Error in Registration. Please try again!</string>

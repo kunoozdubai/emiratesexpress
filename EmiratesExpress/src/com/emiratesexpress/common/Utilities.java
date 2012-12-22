@@ -1,6 +1,9 @@
 package com.emiratesexpress.common;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -357,14 +360,21 @@ public class Utilities {
 		
 		
 	}
+	
+	public static void writeOnSdCard(File folderPath, Bitmap bitmap) {
+		FileOutputStream out = null;
+		try {
+			String PROFILE = "career";
+			String JPG_STRING = ".jpg";
+			String path = folderPath + File.separator + PROFILE + JPG_STRING;
+			out = new FileOutputStream(path);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+	}
 
 	public static void restartMainActivity(Context context) {
-//		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).finish();
-//		Intent intent = new Intent(context, EmiratesExpressActivity.class);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-//		context.startActivity(intent);
 		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).onCreate(null);
 	}
 
