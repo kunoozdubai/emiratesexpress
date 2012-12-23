@@ -23,32 +23,32 @@ public class ServiceActivity extends Activity implements OnClickListener {
 	private TextView screenTitle;
 	private ScrollView scrollView;
 	private Button contactBtn;
-	
+
 	private int SCROLL_INTERVAL = 1000;
-	
+
 	private boolean isStaticContentShowing = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.services);
 		context = this;
 
 		mainParent = (RelativeLayout) findViewById(R.id.mainParent);
 		staticParent = (RelativeLayout) findViewById(R.id.staticParent);
 		scrollView = (ScrollView) findViewById(R.id.scrollView);
-		
+
 		screenTitle = (TextView) findViewById(R.id.titleTxt);
-		
+
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
-		
+
 		imageView = (ImageView) findViewById(R.id.upArrowBtn);
 		imageView.setOnClickListener(this);
-		
+
 		imageView = (ImageView) findViewById(R.id.downArrowBtn);
 		imageView.setOnClickListener(this);
-		
 
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
@@ -76,13 +76,13 @@ public class ServiceActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		int id = v.getId();
 		if (id == R.id.backBtn) {
-			if(isStaticContentShowing){
-//				screenTitle.setText(getString(R.string.services_screen_title));
+			if (isStaticContentShowing) {
+				// screenTitle.setText(getString(R.string.services_screen_title));
 				mainParent.setVisibility(View.VISIBLE);
 				staticParent.setVisibility(View.GONE);
 				contactBtn.setVisibility(View.GONE);
 				isStaticContentShowing = false;
-			}else{
+			} else {
 				finish();
 			}
 		}
@@ -101,7 +101,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			screenTitle.setText(getString(R.string.services_documents_clearing_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_documents_clearing_desc_en));
-			
+
 		}
 		if (id == R.id.block2) {
 
@@ -176,28 +176,34 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_car_embarkation_desc_en));
 		}
-		if(id == R.id.upArrowBtn){
+		if (id == R.id.upArrowBtn) {
 			scrollView.smoothScrollTo(0, scrollView.getScrollY() - SCROLL_INTERVAL);
 		}
-		if(id == R.id.downArrowBtn){
+		if (id == R.id.downArrowBtn) {
 			scrollView.smoothScrollTo(0, scrollView.getScrollY() + SCROLL_INTERVAL);
 		}
 	}
 
-	
 	@Override
 	public void onBackPressed() {
-		if(isStaticContentShowing){
+		if (isStaticContentShowing) {
 			screenTitle.setText(getString(R.string.services_screen_title));
 			mainParent.setVisibility(View.VISIBLE);
 			staticParent.setVisibility(View.GONE);
 			contactBtn.setVisibility(View.GONE);
 			isStaticContentShowing = false;
-		}else{
+		} else {
 			super.onBackPressed();
 		}
 	}
-	
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
+	}
+
 	@Override
 	protected void onDestroy() {
 

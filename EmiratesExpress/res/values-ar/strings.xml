@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, EmiratesExpressActivity!</string>
-    <string name="app_name">Emirates Express</string>
+    <string name="app_name">الإمارات اكسبريس</string>
     <string name="main_screen_title">الإمارات اكسبريس</string>
     <string name="login_screen_title">دخول</string>
     <string name="about_us_screen_title">من نحن</string>

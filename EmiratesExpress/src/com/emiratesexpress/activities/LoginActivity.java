@@ -29,63 +29,63 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	private Context context;
 	private String username;
 	private String password;
-	
-	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        context = this;
-        
-        ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
-		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
-        
-        Button button = (Button) findViewById(R.id.backBtn);
-        button.setOnClickListener(this);
-        button = (Button) findViewById(R.id.loginBtn);
-        button.setOnClickListener(this);
-        
-        boolean isRemember = Utilities.getBooleanValuesFromPreference(context, CommonConstants.REMEMBER_ME, false);
-        if(isRemember){
-        	ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
-        	rememberMe.setChecked(true);
-        	EditText user = (EditText) findViewById(R.id.username);
-        	username = Utilities.getStringValuesFromPreference(context, CommonConstants.USERNAME, "");
-        	user.setText(username);
-        	EditText pass = (EditText) findViewById(R.id.password);
-        	password = Utilities.getStringValuesFromPreference(context, CommonConstants.PASSWORD, "");
-        	pass.setText(password);
-        }
 
-        
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
+		setContentView(R.layout.login);
+		context = this;
+
+		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
+		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
+
+		Button button = (Button) findViewById(R.id.backBtn);
+		button.setOnClickListener(this);
+		button = (Button) findViewById(R.id.loginBtn);
+		button.setOnClickListener(this);
+
+		boolean isRemember = Utilities.getBooleanValuesFromPreference(context, CommonConstants.REMEMBER_ME, false);
+		if (isRemember) {
+			ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
+			rememberMe.setChecked(true);
+			EditText user = (EditText) findViewById(R.id.username);
+			username = Utilities.getStringValuesFromPreference(context, CommonConstants.USERNAME, "");
+			user.setText(username);
+			EditText pass = (EditText) findViewById(R.id.password);
+			password = Utilities.getStringValuesFromPreference(context, CommonConstants.PASSWORD, "");
+			pass.setText(password);
+		}
+
+	}
 
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
-		if(id == R.id.backBtn){
+		if (id == R.id.backBtn) {
 			finish();
-		} else if(id == R.id.loginBtn){
+		} else if (id == R.id.loginBtn) {
 			EditText editText = (EditText) findViewById(R.id.username);
 			username = editText.getText().toString();
 			editText = (EditText) findViewById(R.id.password);
 			password = editText.getText().toString();
-			
-			if(Utilities.isStringEmptyOrNull(username) || Utilities.isStringEmptyOrNull(password)){
+
+			if (Utilities.isStringEmptyOrNull(username) || Utilities.isStringEmptyOrNull(password)) {
 				return;
 			}
-			
+
 			String postData = makePostData(username, password);
 
 			new DataDownloadTask(context, new RegisterResponse(), NetworkConstants.EMIRATES_EXPRESS_URL, postData).execute();
 
-		} else if(id == R.id.registerBtn){
-			
+		} else if (id == R.id.registerBtn) {
+
 			Intent intent = new Intent(context, RegisterActivity.class);
 			startActivity(intent);
 			finish();
 		}
 	}
-	
+
 	private String makePostData(String username, String password) {
 		StringBuilder postData = new StringBuilder();
 
@@ -105,7 +105,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 		postData.append("=");
 		postData.append(password);
 		postData.append("&");
-		
+
 		return postData.toString();
 
 	}
@@ -114,22 +114,23 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			User user = Parser.parseLoginResponse(response);
 			Configurations.user = user;
-			
+
 			String userId = user.getUserId();
 
 			if (!Utilities.isStringEmptyOrNull(userId)) {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
-//				Toast.makeText(context, "Registration Successful " + user.getUserId(), Toast.LENGTH_SHORT).show();
+				// Toast.makeText(context, "Registration Successful " +
+				// user.getUserId(), Toast.LENGTH_SHORT).show();
 				ToggleButton rememberMe = (ToggleButton) findViewById(R.id.rememberMeBtn);
-				boolean isRemember = rememberMe.isChecked(); 
+				boolean isRemember = rememberMe.isChecked();
 				Utilities.setBooleanValuesToPreferences(context, CommonConstants.REMEMBER_ME, isRemember);
-				if(isRemember){
+				if (isRemember) {
 					Utilities.setStringValuesToPreferences(context, CommonConstants.USERNAME, username);
 					Utilities.setStringValuesToPreferences(context, CommonConstants.PASSWORD, password);
-				}else{
+				} else {
 					Utilities.setStringValuesToPreferences(context, CommonConstants.USERNAME, "");
 					Utilities.setStringValuesToPreferences(context, CommonConstants.PASSWORD, "");
 				}
@@ -147,7 +148,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
 	}
 
-	
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
+	}
+
 	@Override
 	protected void onDestroy() {
 

@@ -26,6 +26,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.contact_us);
 		context = this;
 
@@ -39,7 +40,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.sendBtn);
 		button.setOnClickListener(this);
-		
+
 	}
 
 	@Override
@@ -47,7 +48,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		int id = v.getId();
 		if (id == R.id.backBtn) {
 			finish();
-		} else if(id == R.id.locationBtn){
+		} else if (id == R.id.locationBtn) {
 			new StartLocationActivityTask(context).execute();
 
 		} else if (id == R.id.sendBtn) {
@@ -66,8 +67,6 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 			array[1] = emailAddress;
 			array[2] = name;
 			array[3] = message;
-			
-			
 
 			if (Utilities.isArrayValuesEmptyOrNull(array)) {
 				Toast.makeText(context, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
@@ -82,21 +81,22 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 
 			new DataDownloadTask(context, new ContactUsResponse(), NetworkConstants.EMIRATES_EXPRESS_CONTACT_US_URL, postData).execute();
 
-//			Toast.makeText(context, "Send Button clicked", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "Send Button clicked",
+			// Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	private String makePostData(String name, String companyName, String emailAddress, String message) {
 		StringBuilder postData = new StringBuilder();
 
-//		postData.append(NetworkConstants.VIEW);
-//		postData.append("=");
-//		postData.append(NetworkConstants.VIEW_APP_REGISTER);
-//		postData.append("&");
-//		postData.append(NetworkConstants.JSON);
-//		postData.append("=");
-//		postData.append("1");
-//		postData.append("&");
+		// postData.append(NetworkConstants.VIEW);
+		// postData.append("=");
+		// postData.append(NetworkConstants.VIEW_APP_REGISTER);
+		// postData.append("&");
+		// postData.append(NetworkConstants.JSON);
+		// postData.append("=");
+		// postData.append("1");
+		// postData.append("&");
 		postData.append(NetworkConstants.NAME);
 		postData.append("=");
 		postData.append(name);
@@ -131,6 +131,13 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 			finish();
 		}
 
+	}
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
 	}
 
 	@Override

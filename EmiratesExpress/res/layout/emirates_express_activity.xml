@@ -64,7 +64,7 @@
                 android:layout_below="@id/aboutBtn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="Express grp"
+                android:background="@drawable/group"
                 />
             
             <Button
@@ -74,7 +74,7 @@
                 android:layout_below="@id/expressGroupBtn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="business guide"
+                android:background="@drawable/setup_guide"
                 />
 
             <Button
@@ -134,7 +134,7 @@
                 android:layout_below="@id/contactUsBtn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="careers"
+                android:background="@drawable/careers"
                 />
         </RelativeLayout>
     </ScrollView>

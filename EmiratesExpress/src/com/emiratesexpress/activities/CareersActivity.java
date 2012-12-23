@@ -39,12 +39,15 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
+
 		setContentView(R.layout.careers);
 		context = this;
 
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
-		
+
 		imageView = (ImageView) findViewById(R.id.photo);
 		imageView.setOnClickListener(this);
 
@@ -52,7 +55,14 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.sendBtn);
 		button.setOnClickListener(this);
-		
+
+	}
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
 	}
 
 	@Override
@@ -60,7 +70,7 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		int id = v.getId();
 		if (id == R.id.backBtn) {
 			finish();
-		} else if(id == R.id.photo){
+		} else if (id == R.id.photo) {
 			new PictureOptionsDialog(context).show();
 
 		} else if (id == R.id.sendBtn) {
@@ -74,9 +84,9 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 			editText = (EditText) findViewById(R.id.mobile);
 			String mobile = editText.getText().toString();
 			RadioGroup radioGroup = (RadioGroup) findViewById(R.id.gender);
-			RadioButton gender = (RadioButton)findViewById(R.id.male);
+			RadioButton gender = (RadioButton) findViewById(R.id.male);
 			String genderValue = "male";
-			if(!gender.isChecked()){
+			if (!gender.isChecked()) {
 				genderValue = "female";
 			}
 
@@ -86,8 +96,6 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 			array[2] = name;
 			array[3] = mobile;
 			array[4] = genderValue;
-			
-			
 
 			if (Utilities.isArrayValuesEmptyOrNull(array)) {
 				Toast.makeText(context, getString(R.string.all_fields_required), Toast.LENGTH_SHORT).show();
@@ -102,21 +110,22 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 
 			new DataDownloadTask(context, new ContactUsResponse(), NetworkConstants.EMIRATES_EXPRESS_CAREERS_URL, postData).execute();
 
-//			Toast.makeText(context, "Send Button clicked", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "Send Button clicked",
+			// Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	private String makePostData(String name, String country, String emailAddress, String mobile, String gender) {
 		StringBuilder postData = new StringBuilder();
 
-//		postData.append(NetworkConstants.VIEW);
-//		postData.append("=");
-//		postData.append(NetworkConstants.VIEW_APP_REGISTER);
-//		postData.append("&");
-//		postData.append(NetworkConstants.JSON);
-//		postData.append("=");
-//		postData.append("1");
-//		postData.append("&");
+		// postData.append(NetworkConstants.VIEW);
+		// postData.append("=");
+		// postData.append(NetworkConstants.VIEW_APP_REGISTER);
+		// postData.append("&");
+		// postData.append(NetworkConstants.JSON);
+		// postData.append("=");
+		// postData.append("1");
+		// postData.append("&");
 		postData.append(NetworkConstants.NAME.getBytes());
 		postData.append("=".getBytes());
 		postData.append(name.getBytes());
@@ -141,7 +150,7 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		postData.append("=".getBytes());
 		Bitmap bm = null;
 		Bitmap bmpCompressed = null;
-		
+
 		bm = BitmapFactory.decodeFile(CommonConstants.CAREER_IMAGE_PATH, Utilities.getBitmapFactoryoptions(2));
 		if (bm != null) {
 			bmpCompressed = Bitmap.createScaledBitmap(bm, 400, 400, true);
@@ -157,7 +166,7 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 				bmpCompressed.recycle();
 				bmpCompressed = null;
 			}
-			
+
 		}
 		return postData.toString();
 
@@ -182,7 +191,7 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		}
 
 	}
-	
+
 	public void handleDialogSelection(int id) {
 		Uri fileUri;
 		switch (id) {
@@ -196,41 +205,36 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 			break;
 		case 1:
 			// chose from library
-			if (Environment.MEDIA_MOUNTED.equals(Environment
-					.getExternalStorageState())) {
+			if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 				Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
 				photoPickerIntent.setType("image/jpeg");
-				photoPickerIntent.putExtra(Intent.EXTRA_STREAM,
-						Uri.parse("file:///sdcard/Pictures"));
+				photoPickerIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/Pictures"));
 				startActivityForResult(photoPickerIntent, 200);
 			}
 			break;
 		}
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 100) {
 			if (resultCode == RESULT_OK) {
-				
+
 			}
 		} else if (requestCode == 200) {
 			if (resultCode == RESULT_OK) {
 				Uri selectedImage = data.getData();
 				String[] filePathColumn = { MediaStore.Images.Media.DATA };
-				Cursor cursor = getContentResolver().query(selectedImage,
-						filePathColumn, null, null, null);
+				Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
 				cursor.moveToFirst();
 				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
 				String imagePath = cursor.getString(columnIndex);
 				cursor.close();
 				Bitmap careerPic = null;
 				careerPic = BitmapFactory.decodeFile(imagePath);
-				File folderPath = new File(
-						Environment
-								.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-								+ "/" + CommonConstants.EMIRATES_EXPRESS_APP_NAME);
-//				updateProfilePic(profilePic);
+				File folderPath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/"
+						+ CommonConstants.EMIRATES_EXPRESS_APP_NAME);
+				// updateProfilePic(profilePic);
 				if (folderPath.exists()) {
 					Utilities.writeOnSdCard(folderPath, careerPic);
 				} else {
@@ -248,21 +252,17 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 
 	/** Create a File for saving an image */
 	private File getOutputMediaFile() {
-		File mediaStorageDir = new File(
-				Environment
-						.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+		File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
 				CommonConstants.EMIRATES_EXPRESS_APP_NAME);
 		if (!mediaStorageDir.exists()) {
 			if (!mediaStorageDir.mkdirs()) {
 				return null;
 			}
 		}
-		String imagePath = mediaStorageDir.getPath() + File.separator
-				+ "career.jpg";
+		String imagePath = mediaStorageDir.getPath() + File.separator + "career.jpg";
 
 		return new File(imagePath);
 	}
-	
 
 	@Override
 	protected void onDestroy() {

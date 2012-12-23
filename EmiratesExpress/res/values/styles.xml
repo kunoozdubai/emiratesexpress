@@ -14,7 +14,7 @@
 	</style>
 	<style name="preview">
 		<item name="android:windowIsTranslucent">true</item>
-		<item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+		<item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
 		<item name="android:windowBackground">@drawable/preview</item>
 		<item name="android:windowNoTitle">true</item>
 		<item name="android:colorForeground">#111</item>

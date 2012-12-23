@@ -27,30 +27,28 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 
 	private Context context;
 	private MapView mapView;
-	//25.215019, 55.374878
+	// 25.215019, 55.374878
 	private static final double latitudeE6 = 25.215019; // 25269700
 	private static final double longitudeE6 = 55.374878; // 55309500
-	
-	
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.location_activity);
 
 		context = this;
-		
+
 		mapView = (MapView) findViewById(R.id.map_view);
 		mapView.setBuiltInZoomControls(true);
-		
+
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 
 		List<Overlay> mapOverlays = mapView.getOverlays();
 		Drawable drawable = this.getResources().getDrawable(R.drawable.marker);
-		CustomItemizedOverlay itemizedOverlay = new CustomItemizedOverlay(
-				drawable, this);
+		CustomItemizedOverlay itemizedOverlay = new CustomItemizedOverlay(drawable, this);
 
 		// GeoPoint point = new GeoPoint(latitudeE6, longitudeE6);
 
@@ -60,16 +58,14 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 		try {
 			addresses = geocoder.getFromLocation(latitudeE6, longitudeE6, 1);
 			Address returnedAddress = new Address(new Locale("en"));
-			if(addresses != null && addresses.size() > 0){
+			if (addresses != null && addresses.size() > 0) {
 				returnedAddress = addresses.get(0);
 			}
 			StringBuilder strReturnedAddress = new StringBuilder("Address:\n");
 			for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
-				strReturnedAddress.append(returnedAddress.getAddressLine(i))
-						.append("\n");
+				strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
 			}
-			OverlayItem overlayitem = new OverlayItem(point, strReturnedAddress.toString(),
-					"");
+			OverlayItem overlayitem = new OverlayItem(point, strReturnedAddress.toString(), "");
 			itemizedOverlay.addOverlay(overlayitem);
 			mapOverlays.add(itemizedOverlay);
 			MapController mapController = mapView.getController();
@@ -79,7 +75,7 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		// //////////////////////Setting marker for device
 		// location/////////////////////
 
@@ -126,7 +122,14 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 			super((int) (latitude * 1E6), (int) (longitude * 1E6));
 		}
 	}
-	
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
+	}
+
 	@Override
 	protected void onDestroy() {
 		Utilities.unbindDrawables(findViewById(R.id.location_activity));
@@ -137,10 +140,10 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
-		if(id == R.id.backBtn){
+		if (id == R.id.backBtn) {
 			finish();
 		}
-		
+
 	}
 
 }

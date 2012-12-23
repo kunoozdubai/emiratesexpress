@@ -31,78 +31,84 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 	private Context context;
 	private RelativeLayout accoutDetailParent;
 	private Button signOutBtn;
-	
+
 	private Builder alertBuilder;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.account); 
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
+		setContentView(R.layout.account);
 		context = this;
 
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
-		
-		accoutDetailParent =  (RelativeLayout) findViewById(R.id.accountDetailParent);
+
+		accoutDetailParent = (RelativeLayout) findViewById(R.id.accountDetailParent);
 
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.trackApplicationBtn);
 		button.setOnClickListener(this);
-		
+
 		signOutBtn = (Button) findViewById(R.id.signOutBtn);
 		signOutBtn.setOnClickListener(this);
 		signOutBtn.setVisibility(View.GONE);
-		
-//		if(Configurations.user == null || Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
-//			showLoginRegisterDialog();
-//		}
+
+		// if(Configurations.user == null ||
+		// Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
+		// showLoginRegisterDialog();
+		// }
 
 	}
 
-	
 	@Override
-	protected void onResume(){ 
-		if(Configurations.user != null){
-			if(!Utilities.isStringEmptyOrNull(Configurations.user.getUserId())){
+	protected void onResume() {
+		if (Configurations.user != null) {
+			if (!Utilities.isStringEmptyOrNull(Configurations.user.getUserId())) {
 				showUserAccountDetail();
-			}else{
+			} else {
 				showLoginRegisterDialog();
 			}
-		}else{
+		} else {
 			showLoginRegisterDialog();
 		}
-		
-	
+
 		super.onResume();
 	}
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
+	}
+
 	private void showUserAccountDetail() {
 		User user = Configurations.user;
 		accoutDetailParent.setVisibility(View.VISIBLE);
 		TextView textView = (TextView) findViewById(R.id.company);
 		textView.setText(user.getCompany());
-		if(Configurations.currentLanguage == 1){
+		if (Configurations.currentLanguage == 1) {
 			textView = (TextView) findViewById(R.id.name);
-			textView.setText(user.getName());	
-		}else {
+			textView.setText(user.getName());
+		} else {
 			textView = (TextView) findViewById(R.id.name);
 			textView.setText(user.getNameArabic());
 		}
-		
-		
+
 		textView = (TextView) findViewById(R.id.email);
 		textView.setText(user.getEmail());
 		signOutBtn.setVisibility(View.VISIBLE);
-		
-	}
 
+	}
 
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();
 		if (id == R.id.backBtn) {
 			finish();
-		} else if(id == R.id.signOutBtn){
+		} else if (id == R.id.signOutBtn) {
 			Configurations.user.setUserId("");
 			Configurations.user = null;
 			Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, "");
@@ -128,7 +134,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 		postData.append("=");
 		postData.append(userId);
 		postData.append("&");
-		
+
 		return postData.toString();
 
 	}
@@ -137,13 +143,13 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			//Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			finish();
 		}
 
 		@Override
 		public void onError(JSONObject response) {
-			//Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
 		}
 
 	}
@@ -156,20 +162,20 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 
 		super.onDestroy();
 	}
-	
+
 	private void showLoginRegisterDialog() {
 		alertBuilder = new Builder(context);
 
 		alertBuilder.setTitle("");
-		//alertBuilder.setMessage("Account");
+		// alertBuilder.setMessage("Account");
 		alertBuilder.setMessage(getString(R.string.account_screen_title));
-		
+
 		alertBuilder.setPositiveButton(getString(R.string.login), new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				Intent intent = new Intent(context, LoginActivity.class);
 				startActivity(intent);
-				
+
 			}
 		});
 		alertBuilder.setNegativeButton(getString(R.string.register), new DialogInterface.OnClickListener() {
@@ -182,7 +188,7 @@ public class AccountActivity extends Activity implements View.OnClickListener {
 		alertBuilder.setOnKeyListener(backKeylistener);
 		alertBuilder.create().show();
 	}
-	
+
 	private OnKeyListener backKeylistener = new OnKeyListener() {
 
 		@Override

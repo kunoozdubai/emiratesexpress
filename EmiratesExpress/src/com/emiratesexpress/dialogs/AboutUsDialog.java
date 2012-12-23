@@ -28,6 +28,7 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 		activity = (Activity) this.context;
 		LayoutInflater layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		aboutUsView = layoutInflater.inflate(R.layout.about_us_dialog, (ViewGroup) activity.findViewById(R.layout.emirates_express_activity));
+	
 		setContentView(aboutUsView);
 		
 	}

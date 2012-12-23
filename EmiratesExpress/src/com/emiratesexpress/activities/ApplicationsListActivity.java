@@ -44,21 +44,20 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 	private TextView titleTxt;
 	private boolean staticContentShowing = false;
 	private boolean readMoreStaticContentShowing = false;
-	
+
 	private String transaction = "";
 	private String comments = "";
 	private String description = "";
-	
+
 	private int SCROLL_INTERVAL = 1000;
-	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.applications_list_activity);
 		context = this;
 		applicationsArrayList = new ArrayList<Applications>();
-
 
 		mainParent = (RelativeLayout) findViewById(R.id.mainParent);
 		staticContentParent = (RelativeLayout) findViewById(R.id.staticContentParent);
@@ -72,16 +71,16 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		ImageView imageView = (ImageView) findViewById(R.id.mainBackgroundImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
-		
+
 		imageView = (ImageView) findViewById(R.id.upArrowBtn);
 		imageView.setOnClickListener(this);
-		
+
 		imageView = (ImageView) findViewById(R.id.downArrowBtn);
 		imageView.setOnClickListener(this);
-		
+
 		String userId = Utilities.getStringValuesFromPreference(context, NetworkConstants.USERID, "");
 		String postData = makePostData(userId);
-		
+
 		new ApplicationsDataDownloadTask(context, new ApplicationsResponse(), NetworkConstants.EMIRATES_EXPRESS_URL, postData).execute();
 	}
 
@@ -104,6 +103,13 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 	}
 
 	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
+	}
+
+	@Override
 	protected void onDestroy() {
 		Utilities.unbindDrawables(findViewById(R.id.applicationsListActivity));
 		System.gc();
@@ -117,26 +123,25 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		mainParent.setVisibility(View.INVISIBLE);
 		staticContentParent.setVisibility(View.VISIBLE);
 		staticContentShowing = true;
-		
-//		titleTxt.setText(getString(R.string.applications_detail_screen_title));
-		
-		
+
+		// titleTxt.setText(getString(R.string.applications_detail_screen_title));
+
 		TextView textView = (TextView) findViewById(R.id.status);
 		textView.setText(applicationObject.getStatus());
-		if(Configurations.currentLanguage == 1){
+		if (Configurations.currentLanguage == 1) {
 			textView = (TextView) findViewById(R.id.transaction);
 			transaction = applicationObject.getTransaction();
 			textView.setText(transaction);
 			textView = (TextView) findViewById(R.id.authority);
 			textView.setText(applicationObject.getAuthority());
-		}else {
+		} else {
 			textView = (TextView) findViewById(R.id.transaction);
 			transaction = applicationObject.getTransactionAr();
 			textView.setText(transaction);
 			textView = (TextView) findViewById(R.id.authority);
 			textView.setText(applicationObject.getAuthorityAr());
 		}
-		
+
 		textView = (TextView) findViewById(R.id.serviceFee);
 		textView.setText(applicationObject.getServiceFee());
 		textView = (TextView) findViewById(R.id.govtFee);
@@ -145,12 +150,11 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		textView.setText(applicationObject.getDebit());
 		textView = (TextView) findViewById(R.id.oldBalance);
 		textView.setText(applicationObject.getOldBalance());
-//		textView = (TextView) findViewById(R.id.comments);
+		// textView = (TextView) findViewById(R.id.comments);
 		comments = applicationObject.getComments();
-//		textView = (TextView) findViewById(R.id.description);
+		// textView = (TextView) findViewById(R.id.description);
 		description = applicationObject.getDescription();
-		
-		
+
 	}
 
 	@Override
@@ -160,17 +164,17 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 			if (staticContentShowing) {
 				mainParent.setVisibility(View.VISIBLE);
 				staticContentParent.setVisibility(View.GONE);
-//				titleTxt.setText(getString(R.string.applications_screen_title));
+				// titleTxt.setText(getString(R.string.applications_screen_title));
 				staticContentShowing = false;
-			} else if(readMoreStaticContentShowing){
+			} else if (readMoreStaticContentShowing) {
 				staticContentParent.setVisibility(View.VISIBLE);
 				readMoreStaticContentParent.setVisibility(View.GONE);
 				staticContentShowing = true;
 				readMoreStaticContentShowing = false;
-			} else{
+			} else {
 				finish();
 			}
-		} else if(id == R.id.readMoreBtn){
+		} else if (id == R.id.readMoreBtn) {
 			readMoreStaticContentShowing = true;
 			staticContentShowing = false;
 			staticContentParent.setVisibility(View.GONE);
@@ -182,14 +186,13 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 			textView.setText(comments);
 			textView = (TextView) findViewById(R.id.description);
 			textView.setText(description);
-			
-		} else if(id == R.id.upArrowBtn){
-			if(myList != null){
+
+		} else if (id == R.id.upArrowBtn) {
+			if (myList != null) {
 				myList.smoothScrollToPosition(0);
 			}
-		}
-		else if(id == R.id.downArrowBtn){
-			if(myList != null && adapter != null){
+		} else if (id == R.id.downArrowBtn) {
+			if (myList != null && adapter != null) {
 				myList.smoothScrollToPosition(adapter.getCount());
 			}
 		}
@@ -199,7 +202,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		@Override
 		public void onSuccess(JSONObject response) {
-//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			applicationsArrayList = Parser.parseApplicationResponse(response, context);
 			adapter = new ApplicationsListViewAdapter(context, applicationsArrayList);
 			myList = (ListView) findViewById(R.id.list);
@@ -211,7 +214,7 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 
 		@Override
 		public void onError(JSONObject response) {
-//			Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onError", Toast.LENGTH_SHORT).show();
 
 		}
 	}
@@ -221,9 +224,9 @@ public class ApplicationsListActivity extends Activity implements OnClickListene
 		if (staticContentShowing) {
 			mainParent.setVisibility(View.VISIBLE);
 			staticContentParent.setVisibility(View.GONE);
-//			titleTxt.setText(getString(R.string.applications_screen_title));
+			// titleTxt.setText(getString(R.string.applications_screen_title));
 			staticContentShowing = false;
-		} else if(readMoreStaticContentShowing){
+		} else if (readMoreStaticContentShowing) {
 			staticContentParent.setVisibility(View.VISIBLE);
 			readMoreStaticContentParent.setVisibility(View.GONE);
 			staticContentShowing = true;

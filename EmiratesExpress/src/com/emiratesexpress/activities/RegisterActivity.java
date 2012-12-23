@@ -31,10 +31,10 @@ public class RegisterActivity extends Activity implements OnClickListener {
 	private String name;
 	private String nameArabic;
 
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.register);
 		context = this;
 
@@ -97,7 +97,8 @@ public class RegisterActivity extends Activity implements OnClickListener {
 
 			new DataDownloadTask(context, new RegisterResponse(), NetworkConstants.EMIRATES_EXPRESS_URL, postData).execute();
 
-//			Toast.makeText(context, "Register Button clicked", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "Register Button clicked",
+			// Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -145,12 +146,13 @@ public class RegisterActivity extends Activity implements OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-//			Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
+			// Toast.makeText(context, "onSuccess", Toast.LENGTH_SHORT).show();
 			String userId = Parser.parseRegisterationResponse(response);
 			if (!Utilities.isStringEmptyOrNull(userId)) {
 				Utilities.setStringValuesToPreferences(context, NetworkConstants.USERID, userId);
-//				Toast.makeText(context, "Registration Successful " + userId, Toast.LENGTH_SHORT).show();
-				User user = new User(userId, name, nameArabic, username, password, emailAddress, "", "", "", "",companyName);
+				// Toast.makeText(context, "Registration Successful " + userId,
+				// Toast.LENGTH_SHORT).show();
+				User user = new User(userId, name, nameArabic, username, password, emailAddress, "", "", "", "", companyName);
 				Configurations.user = user;
 				finish();
 			} else {
@@ -163,6 +165,13 @@ public class RegisterActivity extends Activity implements OnClickListener {
 			Toast.makeText(context, getString(R.string.registration_error), Toast.LENGTH_SHORT).show();
 		}
 
+	}
+
+	@Override
+	protected void onPause() {
+
+		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
+		super.onPause();
 	}
 
 	@Override
