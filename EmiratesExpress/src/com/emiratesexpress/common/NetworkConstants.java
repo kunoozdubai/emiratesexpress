@@ -3,16 +3,6 @@ package com.emiratesexpress.common;
 
 public class NetworkConstants {
 	
-
-//	#define LOGIN_WEBSERVICE @"view=applogin&json=1"//params (username,password)
-//
-//	#define REGISTER_WEBSERVICE @"view=appregister&json=1"//params (username,password,cpassword,email,name,name_ar)
-//
-//	#define TRACKING_WEBSERVICE @"view=appmember_transactions&json=1"//params(userId)
-	
-//	http://emexgr.ae/contactus.html
-//	name=%@&company=%@&message=%@&email=%@
-	
 	public static String EMIRATES_EXPRESS_URL = "http://www.emexgr.ae/index.php";
 	public static String EMIRATES_EXPRESS_CONTACT_US_URL = "http://emexgr.ae/contactus.html";
 	public static String EMIRATES_EXPRESS_CAREERS_URL = "http://emexgr.ae/careers.html";
@@ -21,6 +11,9 @@ public class NetworkConstants {
 	public static String VIEW_APP_LOGIN = "applogin";
 	public static String VIEW_APP_REGISTER = "appregister";
 	public static String VIEW_APP_MEMBER_TRANSACTIONS = "appmember_transactions";
+	
+	public static String CAREER_EMAIL = "rashid@emexgr.ae";
+	
 	
 	public static String VIEW = "view";
 	public static String JSON = "json";

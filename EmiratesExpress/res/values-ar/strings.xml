@@ -23,6 +23,7 @@
     <string name="company_name">الشركة</string>
     <string name="nationality">جنسية</string>
     <string name="mobile">موبايل</string>
+    <string name="gender">جنس</string>
     <string name="male">ذكر</string>
     <string name="female">أنثى</string>
     <string name="take_photo">تأخذ الصورة</string>

@@ -22,7 +22,6 @@ import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.dialogs.AboutUsDialog;
 import com.emiratesexpress.dialogs.BusinessGuideDialog;
 import com.emiratesexpress.dialogs.EconomicNewsDialog;
-import com.emiratesexpress.pojos.User;
 
 public class EmiratesExpressActivity extends Activity implements OnClickListener {
 

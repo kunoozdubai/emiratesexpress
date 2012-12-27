@@ -31,12 +31,11 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.emiratesexpress.R;
+import com.emiratesexpress.activities.CareersActivity;
 import com.emiratesexpress.activities.EmiratesExpressActivity;
 
 public class Utilities {
@@ -376,6 +375,23 @@ public class Utilities {
 
 	public static void restartMainActivity(Context context) {
 		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).onCreate(null);
+	}
+	
+	public static void email(Context context, String to, String subject, String body) {
+		to = to.trim();
+		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+		String aEmailList[] = { to };
+		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+		emailIntent.setType("image/jpeg");
+		File file = new File(CommonConstants.CAREER_IMAGE_PATH);
+		if(file.exists()){
+			emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file://"+ CommonConstants.CAREER_IMAGE_PATH));
+		}
+		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+		((CareersActivity) context).startActivityForResult(emailIntent,300);
+	
+
 	}
 
 }

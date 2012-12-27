@@ -1,17 +1,11 @@
 package com.emiratesexpress.activities;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-
-import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Bitmap.CompressFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -25,9 +19,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.emiratesexpress.R;
-import com.emiratesexpress.asynctask.DataDownloadTask;
 import com.emiratesexpress.common.CommonConstants;
-import com.emiratesexpress.common.IResponseListener;
 import com.emiratesexpress.common.NetworkConstants;
 import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.dialogs.PictureOptionsDialog;
@@ -55,6 +47,8 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		button.setOnClickListener(this);
 		button = (Button) findViewById(R.id.sendBtn);
 		button.setOnClickListener(this);
+		
+		CommonConstants.CAREER_IMAGE_PATH = "";
 
 	}
 
@@ -105,92 +99,67 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 				Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
 				return;
 			}
+			StringBuilder emailBody = new StringBuilder();
+			String subject = name;
+			if(Utilities.getLocale().equals("ar")){
+				
+				emailBody.append(name);
+				emailBody.append(" : ");
+				emailBody.append(getString(R.string.name));
+				emailBody.append("\n");
 
-			String postData = makePostData(name, country, emailAddress, mobile, genderValue);
+				emailBody.append(genderValue);
+				emailBody.append(" : ");
+				emailBody.append(getString(R.string.gender));
+				emailBody.append("\n");
+				
+				emailBody.append(country);
+				emailBody.append(" : ");
+				emailBody.append(getString(R.string.nationality));
+				emailBody.append("\n");
+				
+				emailBody.append(mobile);
+				emailBody.append(" : ");
+				emailBody.append(getString(R.string.mobile));
+				emailBody.append("\n");
+				
+				emailBody.append(emailAddress);
+				emailBody.append(" : ");
+				emailBody.append(getString(R.string.email_address));
+				emailBody.append("\n");
+				
+			}else{
+				
+				emailBody.append(getString(R.string.name));
+				emailBody.append(": ");
+				emailBody.append(name);
+				emailBody.append("\n");
+				
+				emailBody.append(getString(R.string.gender));
+				emailBody.append(": ");
+				emailBody.append(genderValue);
+				emailBody.append("\n");
+				
+				emailBody.append(getString(R.string.nationality));
+				emailBody.append(": ");
+				emailBody.append(country);
+				emailBody.append("\n");
+				
+				emailBody.append(getString(R.string.mobile));
+				emailBody.append(": ");
+				emailBody.append(mobile);
+				emailBody.append("\n");
+				
+				emailBody.append(getString(R.string.email_address));
+				emailBody.append(": ");
+				emailBody.append(emailAddress);
+				emailBody.append("\n");
 
-			new DataDownloadTask(context, new ContactUsResponse(), NetworkConstants.EMIRATES_EXPRESS_CAREERS_URL, postData).execute();
-
-			// Toast.makeText(context, "Send Button clicked",
-			// Toast.LENGTH_SHORT).show();
-		}
-	}
-
-	private String makePostData(String name, String country, String emailAddress, String mobile, String gender) {
-		StringBuilder postData = new StringBuilder();
-
-		// postData.append(NetworkConstants.VIEW);
-		// postData.append("=");
-		// postData.append(NetworkConstants.VIEW_APP_REGISTER);
-		// postData.append("&");
-		// postData.append(NetworkConstants.JSON);
-		// postData.append("=");
-		// postData.append("1");
-		// postData.append("&");
-		postData.append(NetworkConstants.NAME.getBytes());
-		postData.append("=".getBytes());
-		postData.append(name.getBytes());
-		postData.append("&".getBytes());
-		postData.append(NetworkConstants.COUNTRY.getBytes());
-		postData.append("=".getBytes());
-		postData.append(country.getBytes());
-		postData.append("&".getBytes());
-		postData.append(NetworkConstants.MOBILE.getBytes());
-		postData.append("=".getBytes());
-		postData.append(mobile.getBytes());
-		postData.append("&".getBytes());
-		postData.append(NetworkConstants.EMAIL.getBytes());
-		postData.append("=".getBytes());
-		postData.append(emailAddress.getBytes());
-		postData.append("&".getBytes());
-		postData.append(NetworkConstants.GENDER.getBytes());
-		postData.append("=".getBytes());
-		postData.append(gender.getBytes());
-		postData.append("&".getBytes());
-		postData.append(NetworkConstants.FILE_ATT.getBytes());
-		postData.append("=".getBytes());
-		Bitmap bm = null;
-		Bitmap bmpCompressed = null;
-
-		bm = BitmapFactory.decodeFile(CommonConstants.CAREER_IMAGE_PATH, Utilities.getBitmapFactoryoptions(2));
-		if (bm != null) {
-			bmpCompressed = Bitmap.createScaledBitmap(bm, 400, 400, true);
-			ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			bmpCompressed.compress(CompressFormat.JPEG, 75, bos);
-			byte[] data = bos.toByteArray();
-			postData.append(data);
-			if (bm != null) {
-				bm.recycle();
-				bm = null;
 			}
-			if (bmpCompressed != null) {
-				bmpCompressed.recycle();
-				bmpCompressed = null;
-			}
-
+			Utilities.email(context, NetworkConstants.CAREER_EMAIL, subject, emailBody.toString());
 		}
-		return postData.toString();
-
 	}
 
-	private class ContactUsResponse implements IResponseListener {
-
-		@Override
-		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, getString(R.string.thankyou), Toast.LENGTH_SHORT).show();
-			File file = new File(CommonConstants.CAREER_IMAGE_PATH);
-			file.delete();
-			finish();
-		}
-
-		@Override
-		public void onError(JSONObject response) {
-			Toast.makeText(context, getString(R.string.thankyou), Toast.LENGTH_SHORT).show();
-			File file = new File(CommonConstants.CAREER_IMAGE_PATH);
-			file.delete();
-			finish();
-		}
-
-	}
 
 	public void handleDialogSelection(int id) {
 		Uri fileUri;
@@ -230,18 +199,13 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
 				String imagePath = cursor.getString(columnIndex);
 				cursor.close();
-				Bitmap careerPic = null;
-				careerPic = BitmapFactory.decodeFile(imagePath);
-				File folderPath = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/"
-						+ CommonConstants.EMIRATES_EXPRESS_APP_NAME);
-				// updateProfilePic(profilePic);
-				if (folderPath.exists()) {
-					Utilities.writeOnSdCard(folderPath, careerPic);
-				} else {
-					folderPath.mkdirs();
-					Utilities.writeOnSdCard(folderPath, careerPic);
-				}
+				CommonConstants.CAREER_IMAGE_PATH = imagePath;
+				
 			}
+		} else if(requestCode == 300){
+			Toast.makeText(context, getString(R.string.thankyou), Toast.LENGTH_SHORT).show();
+			CommonConstants.CAREER_IMAGE_PATH = "";
+			finish();
 		}
 	}
 
@@ -259,7 +223,8 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 				return null;
 			}
 		}
-		String imagePath = mediaStorageDir.getPath() + File.separator + "career.jpg";
+		String imagePath = mediaStorageDir.getPath() + File.separator + "career_emex.jpg";
+		CommonConstants.CAREER_IMAGE_PATH = imagePath;
 
 		return new File(imagePath);
 	}
@@ -268,8 +233,6 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 	protected void onDestroy() {
 		context = null;
 		Utilities.unbindDrawables(findViewById(R.id.careers));
-		File file = new File(CommonConstants.CAREER_IMAGE_PATH);
-		file.delete();
 		super.onDestroy();
 	}
 }

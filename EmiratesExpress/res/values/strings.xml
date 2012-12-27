@@ -24,6 +24,7 @@
     <string name="company_name">COMPANY</string>
     <string name="nationality">NATIONALITY</string>
     <string name="mobile">MOBILE</string>
+    <string name="gender">GENDER</string>
     <string name="email_address">EMAIL</string>
     <string name="name">NAME</string>
     <string name="male">Male</string>

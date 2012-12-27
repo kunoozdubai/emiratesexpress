@@ -8,15 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.emiratesexpress.R;
-import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Configurations;
-import com.emiratesexpress.common.NetworkConstants;
-import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.pojos.Applications;
 
 public class ApplicationsListViewAdapter extends BaseAdapter {
