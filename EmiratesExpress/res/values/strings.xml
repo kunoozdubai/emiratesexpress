@@ -47,6 +47,8 @@
     <string name="in_process">In Process</string>
     <string name="rejected">Rejected</string>
     
+    <string name="new_application_details">New Application Details</string>
+    
     
     
     <string name="authority_text">Authority:</string>

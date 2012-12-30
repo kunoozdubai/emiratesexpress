@@ -54,6 +54,8 @@
     <string name="read_more_btn">اقرأ المزيد</string>
     <string name="applying_settings">تطبيق إعدادات، يرجى الانتظار</string>
     <string name="loading_please_wait">التحميل، يرجى الانتظار</string>
+    
+    <string name="new_application_details">تفاصيل التطبيق الجديد</string>
 
     <!-- <string name="choose_language">اختر اللغة</string> -->
 

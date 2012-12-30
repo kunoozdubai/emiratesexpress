@@ -100,7 +100,7 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 				return;
 			}
 			StringBuilder emailBody = new StringBuilder();
-			String subject = name;
+			String subject = getString(R.string.new_application_details);
 			if(Utilities.getLocale().equals("ar")){
 				
 				emailBody.append(name);
