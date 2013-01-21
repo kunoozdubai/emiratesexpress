@@ -66,7 +66,6 @@ public class ClientsActivity extends Activity implements OnClickListener {
 
 		@Override
 		public void onSuccess(JSONObject response) {
-			Toast.makeText(context, "on success", Toast.LENGTH_SHORT).show();
 			String namesList = Parser.parseAppClientsResponse(response, context);
 			names.setText(namesList);
 			
@@ -74,7 +73,6 @@ public class ClientsActivity extends Activity implements OnClickListener {
 
 		@Override
 		public void onError(JSONObject response) {
-			Toast.makeText(context, "on error", Toast.LENGTH_SHORT).show();
 			
 			
 		}
