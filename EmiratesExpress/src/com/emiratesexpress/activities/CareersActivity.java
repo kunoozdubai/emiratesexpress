@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.emiratesexpress.R;
@@ -37,6 +38,9 @@ public class CareersActivity extends Activity implements View.OnClickListener {
 		setContentView(R.layout.careers);
 		context = this;
 
+		TextView title = (TextView) findViewById(R.id.titleTxt);
+		title.setText(context.getString(R.string.careers_screen_title));
+		
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 

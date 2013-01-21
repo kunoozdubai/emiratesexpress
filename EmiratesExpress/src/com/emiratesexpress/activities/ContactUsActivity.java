@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.emiratesexpress.R;
@@ -28,6 +29,15 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.contact_us);
 		context = this;
+
+		String titleString = "";
+		Bundle extras = getIntent().getExtras();
+		titleString = extras.getString("title");
+
+		if (!Utilities.isStringEmptyOrNull(titleString)) {
+			TextView title = (TextView) findViewById(R.id.titleTxt);
+			title.setText(titleString);
+		}
 
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
@@ -60,6 +70,8 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 			String emailAddress = editText.getText().toString();
 			editText = (EditText) findViewById(R.id.description);
 			String message = editText.getText().toString();
+			editText = (EditText) findViewById(R.id.mobile);
+			String mobile = editText.getText().toString();
 
 			String[] array = new String[4];
 			array[0] = companyName;
@@ -75,8 +87,14 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 				Toast.makeText(context, getString(R.string.invalid_email), Toast.LENGTH_SHORT).show();
 				return;
 			}
+			if (!Utilities.isStringEmptyOrNull(mobile)) {
+				if (!Utilities.isValidNumber(mobile)) {
+					Toast.makeText(context, getString(R.string.invalid_mobile), Toast.LENGTH_SHORT).show();
+					return;
+				}
+			}
 
-			String postData = makePostData(name, companyName, emailAddress, message);
+			String postData = makePostData(name, companyName, emailAddress, message, mobile);
 
 			new DataDownloadTask(context, new ContactUsResponse(), NetworkConstants.EMIRATES_EXPRESS_CONTACT_US_URL, postData).execute();
 
@@ -85,7 +103,7 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		}
 	}
 
-	private String makePostData(String name, String companyName, String emailAddress, String message) {
+	private String makePostData(String name, String companyName, String emailAddress, String message, String mobile) {
 		StringBuilder postData = new StringBuilder();
 
 		// postData.append(NetworkConstants.VIEW);
@@ -111,7 +129,11 @@ public class ContactUsActivity extends Activity implements View.OnClickListener 
 		postData.append(NetworkConstants.EMAIL);
 		postData.append("=");
 		postData.append(emailAddress);
-
+		postData.append("&");
+		postData.append(NetworkConstants.MOBILE);
+		postData.append("=");
+		postData.append(mobile);
+		
 		return postData.toString();
 
 	}

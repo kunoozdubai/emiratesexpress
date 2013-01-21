@@ -32,7 +32,7 @@ public class JSONfunctions {
 			connection.setRequestMethod("POST");
 			connection.setDoOutput(true);
 			connection.setUseCaches(false);
-			connection.setConnectTimeout(15000);
+			connection.setConnectTimeout(30000);
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.getOutputStream().write(postData.getBytes());
 

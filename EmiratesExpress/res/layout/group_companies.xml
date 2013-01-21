@@ -27,21 +27,8 @@
             android:background="@drawable/backbtn"
             android:textColor="@android:color/black" />
 
-        <TextView
-            android:id="@+id/titleTxt"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/backBtn"
-            android:gravity="center"
-            android:lines="2"
-            android:maxLines="2"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <Button
+        
+         <Button
             android:id="@+id/contactBtn"
             android:layout_width="80dp"
             android:layout_height="35dp"
@@ -53,7 +40,23 @@
             android:gravity="center"
             android:text="@string/contact_btn"
             android:textColor="@android:color/white"
-            android:visibility="gone" />
+            android:visibility="invisible" />
+        
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/backBtn"
+            android:layout_toLeftOf="@id/contactBtn"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+       
     </RelativeLayout>
 
     <RelativeLayout
@@ -110,13 +113,13 @@
                     <RelativeLayout
                         android:id="@+id/block1"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/cellbg" >
+                        android:layout_height="130dp"
+                         >
 
                         <ImageView
                             android:id="@+id/thumbImg1"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_document_clearing_en_1" />
@@ -127,12 +130,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
+                            android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/thumbImg1"
                             android:text="@string/group_documents_clearing_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt1"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -140,21 +144,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg1"
                             android:text="@string/group_documents_clearing_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block2"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block1"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                        >
 
                         <ImageView
                             android:id="@+id/thumbImg2"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_public_relation_en_2" />
@@ -166,11 +170,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg2"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_public_relation_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt2"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -178,21 +183,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg2"
                             android:text="@string/group_public_relation_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block3"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block2"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                       >
 
                         <ImageView
                             android:id="@+id/thumbImg3"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_trading_activities_en_3" />
@@ -204,11 +209,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg3"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_trading_llc_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt3"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -216,21 +222,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg3"
                             android:text="@string/group_trading_llc_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block4"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block3"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                         >
 
                         <ImageView
                             android:id="@+id/thumbImg4"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_commercial_broker_en_4" />
@@ -242,11 +248,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg4"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_commercial_broker_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt4"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -254,21 +261,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg4"
                             android:text="@string/group_commercial_broker_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block5"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block4"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                         >
 
                         <ImageView
                             android:id="@+id/thumbImg5"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_building_housing_cleaning_en_5" />
@@ -280,11 +287,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg5"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_building_house_cleaning_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt5"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -292,21 +300,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg5"
                             android:text="@string/group_building_house_cleaning_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block6"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block5"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                        >
 
                         <ImageView
                             android:id="@+id/thumbImg6"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_me_tech_trade_en_6" />
@@ -318,11 +326,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg6"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_tech_trade_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt6"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -330,21 +339,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg6"
                             android:text="@string/group_tech_trade_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/block7"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block6"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                       >
 
                         <ImageView
                             android:id="@+id/thumbImg7"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_me_technologies_trading_en_7" />
@@ -356,11 +365,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg7"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_technologies_trading_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt7"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -368,21 +378,21 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg7"
                             android:text="@string/group_technologies_trading_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
                     
                     <RelativeLayout
                         android:id="@+id/block9"
                         android:layout_width="300dp"
-                        android:layout_height="80dp"
+                        android:layout_height="120dp"
                         android:layout_below="@id/block7"
                         android:layout_marginTop="15dp"
-                        android:background="@drawable/cellbg" >
+                        >
 
                         <ImageView
                             android:id="@+id/thumbImg9"
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="7dp"
                             android:background="@drawable/group_saqerko_general_trading_en_8" />
@@ -394,11 +404,12 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="7dp"
                             android:layout_toRightOf="@id/thumbImg9"
+                            android:layout_centerVertical="true"
                             android:text="@string/group_general_trading_title_en"
                             android:textColor="@android:color/black"
                             android:textStyle="bold" />
 
-                        <TextView
+                        <!-- <TextView
                             android:id="@+id/descTxt9"
                             android:layout_width="200dp"
                             android:layout_height="50dp"
@@ -406,7 +417,7 @@
                             android:layout_marginLeft="20dp"
                             android:layout_toRightOf="@id/thumbImg9"
                             android:text="@string/group_general_trading_desc_en"
-                            android:textColor="@android:color/black" />
+                            android:textColor="@android:color/black" /> -->
                     </RelativeLayout>
                     
                     

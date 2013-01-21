@@ -21,6 +21,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 	private RelativeLayout mainParent;
 	private RelativeLayout staticParent;
 	private TextView screenTitle;
+	private TextView mainTitle;
 	private ScrollView scrollView;
 	private Button contactBtn;
 
@@ -35,11 +36,13 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 		setContentView(R.layout.group_companies);
 		context = this;
 
+		
 		mainParent = (RelativeLayout) findViewById(R.id.mainParent);
 		staticParent = (RelativeLayout) findViewById(R.id.staticParent);
 		scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-		screenTitle = (TextView) findViewById(R.id.titleTxt);
+		mainTitle = (TextView) findViewById(R.id.titleTxt);
+		mainTitle.setText(context.getString(R.string.groups_screen_title));
 
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
@@ -82,7 +85,8 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 				// screenTitle.setText(getString(R.string.services_screen_title));
 				mainParent.setVisibility(View.VISIBLE);
 				staticParent.setVisibility(View.GONE);
-				contactBtn.setVisibility(View.GONE);
+				contactBtn.setVisibility(View.INVISIBLE);
+				mainTitle.setText(getString(R.string.groups_screen_title));
 				isStaticContentShowing = false;
 			} else {
 				finish();
@@ -90,6 +94,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 		}
 		if (id == R.id.contactBtn) {
 			Intent intent = new Intent(context, ContactUsActivity.class);
+			intent.putExtra("title", getString(R.string.contact_us_screen_title));
 			startActivity(intent);
 		}
 		if (id == R.id.block1) {
@@ -101,6 +106,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_document_clearing_en_1);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_documents_clearing_title_en));
+			mainTitle.setText(getString(R.string.group_documents_clearing_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_documents_clearing_desc_en));
 
@@ -115,6 +121,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_public_relation_en_2);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_public_relation_title_en));
+			mainTitle.setText(getString(R.string.group_public_relation_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_public_relation_desc_en));
 		}
@@ -127,6 +134,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_trading_activities_en_3);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_trading_llc_title_en));
+			mainTitle.setText(getString(R.string.group_trading_llc_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_trading_llc_desc_en));
 		}
@@ -139,6 +147,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_commercial_broker_en_4);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_commercial_broker_title_en));
+			mainTitle.setText(getString(R.string.group_commercial_broker_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_commercial_broker_desc_en));
 		}
@@ -151,6 +160,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_building_housing_cleaning_en_5);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_building_house_cleaning_title_en));
+			mainTitle.setText(getString(R.string.group_building_house_cleaning_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_commercial_broker_desc_en));
 		}
@@ -163,6 +173,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_me_tech_trade_en_6);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_tech_trade_title_en));
+			mainTitle.setText(getString(R.string.group_tech_trade_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_tech_trade_desc_en));
 		}
@@ -175,6 +186,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_me_technologies_trading_en_7);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_technologies_trading_title_en));
+			mainTitle.setText(getString(R.string.group_technologies_trading_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_technologies_trading_desc_en));
 		}
@@ -187,6 +199,7 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			imageView.setBackgroundResource(R.drawable.group_saqerko_general_trading_en_8);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.group_general_trading_title_en));
+			mainTitle.setText(getString(R.string.group_general_trading_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.group_general_trading_desc_en));
 		}
@@ -204,7 +217,8 @@ public class GroupCompaniesActivity extends Activity implements OnClickListener 
 			screenTitle.setText(getString(R.string.services_screen_title));
 			mainParent.setVisibility(View.VISIBLE);
 			staticParent.setVisibility(View.GONE);
-			contactBtn.setVisibility(View.GONE);
+			contactBtn.setVisibility(View.INVISIBLE);
+			mainTitle.setText(getString(R.string.groups_screen_title));
 			isStaticContentShowing = false;
 		} else {
 			super.onBackPressed();

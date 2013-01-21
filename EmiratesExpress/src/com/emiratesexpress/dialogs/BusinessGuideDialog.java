@@ -13,6 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
@@ -39,9 +40,12 @@ public class BusinessGuideDialog extends Dialog implements View.OnClickListener,
 	}
 
 	private void initializeViews() {
-		ImageView imageView = (ImageView) businessGuideView.findViewById(R.id.backgourndImg);
-		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
+		/*ImageView imageView = (ImageView) businessGuideView.findViewById(R.id.backgourndImg);
+		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));*/
 
+		TextView title = (TextView) businessGuideView.findViewById(R.id.titleTxt);
+		title.setText(context.getString(R.string.business_setup_screen_title));
+		
 		Button button = (Button) businessGuideView.findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		

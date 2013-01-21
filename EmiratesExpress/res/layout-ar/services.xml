@@ -27,20 +27,6 @@
             android:background="@drawable/backbtn"
             android:textColor="@android:color/black" />
 
-        <TextView
-            android:id="@+id/titleTxt"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@id/backBtn"
-            android:gravity="center"
-            android:lines="2"
-            android:maxLines="2"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
         <Button
             android:id="@+id/contactBtn"
             android:layout_width="80dp"
@@ -53,7 +39,24 @@
             android:gravity="center"
             android:text="@string/contact_btn"
             android:textColor="@android:color/white" 
-            android:visibility="gone"/>
+            android:visibility="invisible"/>
+        
+        <TextView
+            android:id="@+id/titleTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@id/backBtn"
+            android:layout_toLeftOf="@id/contactBtn"
+            android:gravity="center"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        
     </RelativeLayout>
 
     <RelativeLayout

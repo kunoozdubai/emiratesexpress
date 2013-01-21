@@ -49,12 +49,6 @@ public class DataDownloadTask extends AsyncTask<Void, Void, Void> {
 			}else{
 				responseListener.onError(jsonObject);
 			}
-//				String error = jsonObject.getString("ERROR");
-//				if(Utilities.isStringEmptyOrNull(error)){
-//					responseListener.onSuccess(jsonObject);
-//				}else{
-//					responseListener.onError(jsonObject);
-//				}
 			
 		}else{
 			responseListener.onError(null);

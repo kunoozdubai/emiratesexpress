@@ -34,7 +34,9 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
+import com.emiratesexpress.R;
 import com.emiratesexpress.activities.CareersActivity;
 import com.emiratesexpress.activities.EmiratesExpressActivity;
 
@@ -87,7 +89,7 @@ public class Utilities {
 		errorMessage = errorMessage.trim();
 
 		progressDialog = new ProgressDialog(ctx);
-		progressDialog.setCancelable(false);
+		progressDialog.setCancelable(true);
 		progressDialog.setMessage(errorMessage);
 
 		// ((DJIMainActivity) CommonConstants.DJI_MAIN_ACTIVITY_CONTEXT)
@@ -271,7 +273,8 @@ public class Utilities {
 
 	public static String readServerResponse(InputStream inputStream) {
 		StringBuilder response = new StringBuilder("");
-		try {
+		
+		/*try {
 			char[] buffer = new char[1024];
 
 			try {
@@ -294,7 +297,27 @@ public class Utilities {
 		if (response == null || response.length() <= 0) {
 			response = new StringBuilder("");
 		}
+		return response.toString();*/
+		
+		
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"), 8);
+			String line = null;
+			// add element with the service name
+			while ((line = reader.readLine()) != null) {
+				response.append(line + "\n");
+			}
+
+			inputStream.close();
+			// response.append("}");
+			// result = sb.toString();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return response.toString();
+		
+		
 	}
 
 	public static void getLastReknownedGPSLocation() {
@@ -373,7 +396,9 @@ public class Utilities {
 		bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
 	}
 
-	public static void restartMainActivity(Context context) {
+	public static void restartMainActivity(Context context, RelativeLayout mainActivityParentView) {
+//		Utilities.unbindDrawables(mainActivityParentView);
+		System.gc();
 		((EmiratesExpressActivity)CommonConstants.EMIRATES_EXPRESS_CONTEXT).onCreate(null);
 	}
 	

@@ -21,6 +21,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 	private RelativeLayout mainParent;
 	private RelativeLayout staticParent;
 	private TextView screenTitle;
+	private TextView mainTitle;
 	private ScrollView scrollView;
 	private Button contactBtn;
 
@@ -39,8 +40,9 @@ public class ServiceActivity extends Activity implements OnClickListener {
 		staticParent = (RelativeLayout) findViewById(R.id.staticParent);
 		scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-		screenTitle = (TextView) findViewById(R.id.titleTxt);
-
+		mainTitle = (TextView) findViewById(R.id.titleTxt);
+		mainTitle.setText(context.getString(R.string.services_screen_title));
+		
 		ImageView imageView = (ImageView) findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 
@@ -80,7 +82,8 @@ public class ServiceActivity extends Activity implements OnClickListener {
 				// screenTitle.setText(getString(R.string.services_screen_title));
 				mainParent.setVisibility(View.VISIBLE);
 				staticParent.setVisibility(View.GONE);
-				contactBtn.setVisibility(View.GONE);
+				contactBtn.setVisibility(View.INVISIBLE);
+				mainTitle.setText(getString(R.string.services_screen_title));
 				isStaticContentShowing = false;
 			} else {
 				finish();
@@ -99,6 +102,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_document_clearing_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_documents_clearing_title_en));
+			mainTitle.setText(getString(R.string.services_documents_clearing_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_documents_clearing_desc_en));
 
@@ -113,6 +117,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_businessmen_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_businessmen_title_en));
+			mainTitle.setText(getString(R.string.services_businessmen_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_businessmen_desc_en));
 		}
@@ -125,6 +130,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_typing_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_typing_title_en));
+			mainTitle.setText(getString(R.string.services_typing_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_typing_desc_en));
 		}
@@ -137,6 +143,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_photocopying_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_photocopying_title_en));
+			mainTitle.setText(getString(R.string.services_photocopying_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_photocopying_desc_en));
 		}
@@ -149,6 +156,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_translation_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_translation_title_en));
+			mainTitle.setText(getString(R.string.services_translation_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_translation_desc_en));
 		}
@@ -161,6 +169,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_vehicle_registration_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_vehicles_regisration_title_en));
+			mainTitle.setText(getString(R.string.services_vehicles_regisration_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_vehicles_regisration_desc_en));
 		}
@@ -173,6 +182,7 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			imageView.setBackgroundResource(R.drawable.service_car_embarkation_en);
 			screenTitle = (TextView) findViewById(R.id.serviceTitle);
 			screenTitle.setText(getString(R.string.services_car_embarkation_title_en));
+			mainTitle.setText(getString(R.string.services_car_embarkation_title_en));
 			TextView textView = (TextView) findViewById(R.id.description);
 			textView.setText(getString(R.string.services_car_embarkation_desc_en));
 		}
@@ -190,7 +200,8 @@ public class ServiceActivity extends Activity implements OnClickListener {
 			screenTitle.setText(getString(R.string.services_screen_title));
 			mainParent.setVisibility(View.VISIBLE);
 			staticParent.setVisibility(View.GONE);
-			contactBtn.setVisibility(View.GONE);
+			contactBtn.setVisibility(View.INVISIBLE);
+			mainTitle.setText(getString(R.string.services_screen_title));
 			isStaticContentShowing = false;
 		} else {
 			super.onBackPressed();

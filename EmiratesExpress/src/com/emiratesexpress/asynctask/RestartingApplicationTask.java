@@ -2,6 +2,7 @@ package com.emiratesexpress.asynctask;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.RelativeLayout;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
@@ -12,11 +13,12 @@ public class RestartingApplicationTask extends AsyncTask<Void, Void, Void> {
 
 	private Context context;
 	private String languageCode;
+	private RelativeLayout mainActivityParentView;
 	
-	
-	public RestartingApplicationTask(Context ctx, String languageCode){
+	public RestartingApplicationTask(Context ctx, String languageCode, RelativeLayout mainActivityParentView){
 		context = ctx;
 		this.languageCode = languageCode;
+		this.mainActivityParentView = mainActivityParentView;
 		
 	}
 	@Override
@@ -34,7 +36,7 @@ public class RestartingApplicationTask extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
-		Utilities.restartMainActivity(CommonConstants.EMIRATES_EXPRESS_CONTEXT);
+		Utilities.restartMainActivity(CommonConstants.EMIRATES_EXPRESS_CONTEXT, mainActivityParentView);
 		Utilities.cancelprogressDialog();
 	}
 };

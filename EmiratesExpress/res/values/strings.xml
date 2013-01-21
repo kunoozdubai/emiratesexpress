@@ -5,9 +5,14 @@
     <string name="app_name">Emirates Express</string>
 
     <string name="main_screen_title">Emirates Express</string>
+    <string name="clients_screen_title">Clients</string>
+    <string name="careers_screen_title">Careers</string>
+    <string name="groups_screen_title">Emirates Express Group</string>
+    <string name="business_setup_screen_title">Business Set Up</string>
+    <string name="news_screen_title">Economic News</string>
     <string name="login_screen_title">Login</string>
     <string name="about_us_screen_title">About Us</string>
-    <string name="services_screen_title">Services</string>
+    <string name="services_screen_title">Emirates Express Document Clearing Services</string>
     <string name="register_screen_title">Register</string>
     <string name="contact_us_screen_title">Contact Us</string>
     <string name="account_screen_title">Account</string>
@@ -40,6 +45,7 @@
     <string name="thankyou">Thankyou!</string>
     <string name="all_fields_required">All fields are mandatory</string>
     <string name="invalid_email">Email address not valid</string>
+    <string name="invalid_mobile">Mobile number not valid</string>
     <string name="registration_error">Error in Registration. Please try again!</string>
     <string name="password_error">Password fields do not match</string>
     
@@ -49,7 +55,11 @@
     
     <string name="new_application_details">New Application Details</string>
     
+    <string name="consultation_form">Consultation Form</string>
     
+    <string name="location_screen_title">Map Directions</string>
+    
+    <string name="client_heading">We are proud to list some of our elite customers, who are considered to be the source of our success and progression.</string>
     
     <string name="authority_text">Authority:</string>
     <string name="status_text">Status:</string>

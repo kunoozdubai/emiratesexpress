@@ -11,6 +11,7 @@ public class NetworkConstants {
 	public static String VIEW_APP_LOGIN = "applogin";
 	public static String VIEW_APP_REGISTER = "appregister";
 	public static String VIEW_APP_MEMBER_TRANSACTIONS = "appmember_transactions";
+	public static String VIEW_APP_CLIENTS = "appclients";
 	
 	public static String CAREER_EMAIL = "rashid@emexgr.ae";
 	

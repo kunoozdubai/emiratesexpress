@@ -8,8 +8,7 @@
     <ImageView
         android:id="@+id/backgourndImg"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-         />
+        android:layout_height="fill_parent" />
 
     <RelativeLayout
         android:id="@+id/titleParent"
@@ -35,114 +34,199 @@
             android:layout_centerInParent="true"
             android:text="@string/contact_us_screen_title"
             android:textColor="@android:color/white"
-            android:textStyle="bold" 
-            android:textSize="22dp"/>
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/mainParent"
         android:layout_width="fill_parent"
         android:layout_height="600dp"
-        android:layout_below="@id/titleParent"
-        >
+        android:layout_below="@id/titleParent" >
 
-        
         <RelativeLayout
             android:id="@+id/block1"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titleTxt" 
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true">
-            <EditText android:id="@+id/name" 
-                android:layout_width="300dp" 
+            android:layout_below="@id/titleTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp" >
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:hint="@string/name"
-                />
-            
+                android:hint="@string/name" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/block2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_below="@id/block1"
-            android:layout_centerHorizontal="true">
-            <EditText android:id="@+id/company" 
-                android:layout_width="300dp" 
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@+id/company"
+                android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:hint="@string/company_name"
-                />
-            
+                android:hint="@string/company_name" />
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/block3"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:layout_below="@id/block2"
-            android:layout_centerHorizontal="true">
-            <EditText android:id="@+id/email" 
-                android:layout_width="300dp" 
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@+id/mobile"
+                android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email_address"
-                />
-            
+                android:hint="@string/mobile"
+                android:inputType="phone" />
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/block4"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/block3" 
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true">
-            <EditText android:id="@+id/description" 
-                android:layout_width="300dp" 
-                android:layout_height="200dp"
-                android:gravity="left|top"
-                />
-            
+            android:layout_below="@id/block3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:hint="@string/email_address"
+                android:inputType="textEmailAddress" />
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/block5"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/block4" 
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true">
-            <Button android:id="@+id/sendBtn" 
-                android:layout_width="80dp" 
-                android:layout_height="30dp"
-                android:text="@string/send_btn"
-                android:gravity="center"
-                android:textColor="#000055"
-                android:textStyle="bold"
-                android:background="@drawable/btnbg"
-                />
-            
+            android:layout_below="@id/block4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="300dp"
+                android:layout_height="120dp"
+                android:gravity="left|top" />
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/block6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-             android:layout_alignParentRight="true"
-             android:layout_marginRight="10dp"
-             android:layout_marginBottom="10dp"
-            android:layout_marginTop="5dp"
-            >
-            <ImageView android:id="@+id/locationBtn" 
-                android:layout_width="wrap_content" 
-                android:layout_height="wrap_content"
-                android:background="@drawable/map_icon"
-                />
-            
+            android:layout_below="@id/block5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" >
+
+            <Button
+                android:id="@+id/sendBtn"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btnbg"
+                android:gravity="center"
+                android:text="@string/send_btn"
+                android:textColor="#000055"
+                android:textStyle="bold" />
         </RelativeLayout>
-        
+
+        <RelativeLayout
+            android:id="@+id/locationParent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp" >
+
+            <ImageView
+                android:id="@+id/locationBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/map_icon" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block7"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp" >
+
+            <ImageView
+                android:id="@+id/phoneIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/telephone" />
+
+            <ImageView
+                android:id="@+id/faxIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/phoneIcon"
+                android:background="@drawable/fax" />
+
+            <ImageView
+                android:id="@+id/emailIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/faxIcon"
+                android:background="@drawable/email" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/block8"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@id/block7"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/block7" >
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+971(4)2570022"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/phone"
+                android:text="+971(4)2570022"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/emailAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fax"
+                android:text="info@emexgr.ae"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
     </RelativeLayout>
 
 </RelativeLayout>

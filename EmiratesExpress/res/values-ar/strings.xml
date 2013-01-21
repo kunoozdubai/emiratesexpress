@@ -4,9 +4,14 @@
     <string name="hello">Hello World, EmiratesExpressActivity!</string>
     <string name="app_name">الإمارات اكسبريس</string>
     <string name="main_screen_title">الإمارات اكسبريس</string>
+    <string name="groups_screen_title">مجموعة الامارات اكسبريس</string>
+    <string name="careers_screen_title">فرص عمل</string>
+    <string name="business_setup_screen_title">ابدأ مشروعك</string>
+    <string name="news_screen_title">التحليل الاقتصادي</string>
+    <string name="clients_screen_title">العملاء</string>
     <string name="login_screen_title">دخول</string>
     <string name="about_us_screen_title">من نحن</string>
-    <string name="services_screen_title">خدمة</string>
+    <string name="services_screen_title">خدمات الامارات إكسبريس لتخليص المعاملات</string>
     <string name="register_screen_title">تسجيل</string>
     <string name="contact_us_screen_title">الحساب الشخصي</string>
     <string name="account_screen_title">الحساب الشخصي</string>
@@ -22,7 +27,7 @@
     <string name="re_enter_password">أدخل كلمة المرور من جديد</string>
     <string name="company_name">الشركة</string>
     <string name="nationality">جنسية</string>
-    <string name="mobile">موبايل</string>
+    <string name="mobile">هاتف</string>
     <string name="gender">جنس</string>
     <string name="male">ذكر</string>
     <string name="female">أنثى</string>
@@ -38,6 +43,7 @@
     <string name="thankyou">شكر</string>
     <string name="all_fields_required">جميع الحقول إلزامية</string>
     <string name="invalid_email">عنوان البريد الإلكتروني غير صالح</string>
+    <string name="invalid_mobile">رقم الجوال غير صالحة</string>
     <string name="registration_error">خطأ في التسجيل. يرجى المحاولة مرة أخرى</string>
     <string name="password_error">حقول كلمة المرور غير متطابقين</string>
     <string name="approved">وافق</string>
@@ -57,6 +63,12 @@
     
     <string name="new_application_details">تفاصيل التطبيق الجديد</string>
 
+    <string name="consultation_form">الاستشارات</string>
+    
+    <string name="location_screen_title">خريطة المكتب</string>
+    
+    <string name="client_heading">لقد استثمرنا قدراً كبيراً من الجهد للتوصل إلى راحة عملائنا الذين يعدون سر نجاحنا وتقدمناولنا الفخر بأن نعرض البعض من عملائنا المتميزين:</string>
+    
     <!-- <string name="choose_language">اختر اللغة</string> -->
 
     <string name="track_application_btn">تتبع التطبيق</string>

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
@@ -40,9 +40,13 @@ public class AboutUsDialog extends Dialog implements View.OnClickListener, OnCan
 	}
 
 	private void initializeViews() {
-		ImageView imageView = (ImageView) aboutUsView.findViewById(R.id.backgourndImg);
-		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
+//		ImageView imageView = (ImageView) aboutUsView.findViewById(R.id.backgourndImg);
+//		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 
+		
+		TextView title = (TextView) aboutUsView.findViewById(R.id.titleTxt);
+		title.setText(context.getString(R.string.about_us_screen_title));
+		
 		Button button = (Button) aboutUsView.findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		

@@ -84,7 +84,8 @@
                 android:layout_below="@id/businessSetupGuideBtn"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/services" />
+                android:background="@drawable/services"
+                 />
 
             <!--
              <Button
@@ -136,6 +137,40 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/careers"
                 />
+            
+            <Button
+                android:id="@+id/clientsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/careerBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/clients"
+                />
+            
+            <Button
+                android:id="@+id/mapBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/clientsBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/map"
+                />
+            
+            
+            <Button
+                android:id="@+id/consultationBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_below="@id/mapBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/consultation"
+                
+                />
+            
+            
         </RelativeLayout>
     </ScrollView>
 

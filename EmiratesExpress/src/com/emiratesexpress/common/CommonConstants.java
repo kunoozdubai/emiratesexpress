@@ -21,8 +21,9 @@ public class CommonConstants {
 	public static int REJECTED = 3;
 
 	public static double CURRENT_LONGITUDE;
-
 	public static double CURRENT_LATITUDE;
+
+	
 
 
 }

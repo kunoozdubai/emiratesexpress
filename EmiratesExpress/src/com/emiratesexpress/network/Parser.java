@@ -11,6 +11,7 @@ import android.content.Context;
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.NetworkConstants;
+import com.emiratesexpress.common.Utilities;
 import com.emiratesexpress.pojos.Applications;
 import com.emiratesexpress.pojos.User;
 
@@ -224,4 +225,62 @@ public class Parser {
 		}
 		return applicationList;
 	}
+
+	public static String parseAppClientsResponse(JSONObject response, Context context) {
+		JSONArray appClientsJSONArray = null;
+		StringBuilder nameBuilder = new StringBuilder();
+		int size = 0;
+		boolean isLocaleEnglish = true;
+		if(Utilities.getLocale().equals("ar")){
+			isLocaleEnglish = false;
+		}
+		try {
+			if (!response.isNull("results")) {
+				size = Integer.parseInt(response.getString("results"));
+			}
+			if (!response.isNull("data")) {
+				appClientsJSONArray = response.getJSONArray("data");
+			}
+			
+			for (int i = 0; i < size; i++) {
+
+				response = appClientsJSONArray.getJSONObject(i);
+				String name = "";
+				String nameAr = "";
+				if (!response.isNull(NetworkConstants.NAME)) {
+					name = response.getString(NetworkConstants.NAME);
+				}
+				if (!response.isNull(NetworkConstants.NAME_AR)) {
+					nameAr = response.getString(NetworkConstants.NAME_AR);
+				}
+				if(isLocaleEnglish){
+					if(!Utilities.isStringEmptyOrNull(name)){
+						nameBuilder.append(name);
+						nameBuilder.append("\n");
+					}
+//					else{
+//						nameBuilder.append(nameAr);
+//						nameBuilder.append("\n");
+//					}
+				}else if(!isLocaleEnglish){
+					if(!Utilities.isStringEmptyOrNull(nameAr)){
+						nameBuilder.append(nameAr);
+						nameBuilder.append("\n");
+					}
+//					else{
+//						nameBuilder.append(name);
+//						nameBuilder.append("\n");
+//					}
+				}
+				
+			}
+			
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		return nameBuilder.toString();
+	}
+
 }

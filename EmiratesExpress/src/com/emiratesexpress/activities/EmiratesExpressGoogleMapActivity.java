@@ -4,118 +4,158 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.CommonConstants;
 import com.emiratesexpress.common.Utilities;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.maps.GeoPoint;
-import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
-import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
 
-public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnClickListener {
+public class EmiratesExpressGoogleMapActivity extends FragmentActivity implements OnMarkerClickListener, OnClickListener {
 
 	private Context context;
-	private MapView mapView;
-	// 25.215019, 55.374878
+	// private MapView mapView;
+
+	private GoogleMap mMap;
+	private Marker adMarker;
+	private String adAdress = "";
+
+	private Marker currentMarker;
+	private String currentAdress = "";
+	private static final LatLng currentLocation = new LatLng(CommonConstants.CURRENT_LATITUDE, CommonConstants.CURRENT_LONGITUDE);
+
 	private static final double latitudeE6 = 25.215019; // 25269700
 	private static final double longitudeE6 = 55.374878; // 55309500
+	private static LatLng emiratesLocation = new LatLng(latitudeE6, longitudeE6);
+
+//	private static final double latitudeE6 = CommonConstants.LATITUDE;
+//	private static final double longitudeE6 = CommonConstants.LONGITUDE;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.location_activity);
 
 		context = this;
-
-		mapView = (MapView) findViewById(R.id.map_view);
-		mapView.setBuiltInZoomControls(true);
-
+		
 		Button button = (Button) findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
+		
+		mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map1)).getMap();
 
-		List<Overlay> mapOverlays = mapView.getOverlays();
-		Drawable drawable = this.getResources().getDrawable(R.drawable.marker);
-		CustomItemizedOverlay itemizedOverlay = new CustomItemizedOverlay(drawable, this);
-
-		// GeoPoint point = new GeoPoint(latitudeE6, longitudeE6);
-
-		GeoPoint point = new LatLonPoint(latitudeE6, longitudeE6);
 		Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
 		List<Address> addresses;
 		try {
-			addresses = geocoder.getFromLocation(latitudeE6, longitudeE6, 1);
+			addresses = geocoder.getFromLocation(latitudeE6,longitudeE6, 1);
 			Address returnedAddress = new Address(new Locale("en"));
 			if (addresses != null && addresses.size() > 0) {
 				returnedAddress = addresses.get(0);
 			}
-			StringBuilder strReturnedAddress = new StringBuilder("Address:\n");
+			StringBuilder strReturnedAddress = new StringBuilder("");
 			for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
 				strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
 			}
-			OverlayItem overlayitem = new OverlayItem(point, strReturnedAddress.toString(), "");
-			itemizedOverlay.addOverlay(overlayitem);
-			mapOverlays.add(itemizedOverlay);
-			MapController mapController = mapView.getController();
-			mapController.animateTo(point);
-			mapController.setZoom(6);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			adAdress = strReturnedAddress.toString();
 
-		// //////////////////////Setting marker for device
-		// location/////////////////////
-
-		mapOverlays = mapView.getOverlays();
-		drawable = this.getResources().getDrawable(R.drawable.marker_current);
-		itemizedOverlay = new CustomItemizedOverlay(drawable, this);
-
-		// GeoPoint point = new GeoPoint(latitudeE6, longitudeE6);
-
-		point = new LatLonPoint(CommonConstants.CURRENT_LATITUDE, CommonConstants.CURRENT_LONGITUDE);
-		geocoder = new Geocoder(this, Locale.ENGLISH);
-
-		try {
+			geocoder = new Geocoder(this, Locale.ENGLISH);
 			addresses = geocoder.getFromLocation(CommonConstants.CURRENT_LATITUDE, CommonConstants.CURRENT_LONGITUDE, 1);
 			if (addresses != null && addresses.size() > 0) {
-				Address returnedAddress = addresses.get(0);
-				StringBuilder strReturnedAddress = new StringBuilder("Address:\n");
-				for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
-					strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
-				}
-				OverlayItem overlayitem = new OverlayItem(point, strReturnedAddress.toString(), "");
-				itemizedOverlay.addOverlay(overlayitem);
-				mapOverlays.add(itemizedOverlay);
-				MapController mapController = mapView.getController();
-				// mapController.animateTo(point);
-				mapController.setZoom(6);
+				returnedAddress = addresses.get(0);
 			}
+			strReturnedAddress = new StringBuilder("");
+			for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
+				strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+			}
+			currentAdress = strReturnedAddress.toString();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// ///////////////////////////////////////////
+
+		setUpMap();
 
 	}
 
-	@Override
-	protected boolean isRouteDisplayed() {
-		return false;
+	private void setUpMap() {
+		// Hide the zoom controls as the button panel will cover it.
+		mMap.getUiSettings().setZoomControlsEnabled(true);
+
+		// Add lots of markers to the map.
+		adMarker = mMap.addMarker(new MarkerOptions().position(emiratesLocation).title("Emirates Express").snippet(adAdress)
+				.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+		currentMarker = mMap.addMarker(new MarkerOptions().position(currentLocation).title("Current Location").snippet(currentAdress)
+				.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+		// Creates a marker rainbow demonstrating how to create default marker
+		// icons of different
+		// hues (colors).
+
+		// Setting an info window adapter allows us to change the both the
+		// contents and look of the
+		// info window.
+		// mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
+
+		// Set listeners for marker events. See the bottom of this class for
+		// their behavior.
+		mMap.setOnMarkerClickListener(this);
+		// mMap.setOnInfoWindowClickListener(this);
+		// mMap.setOnMarkerDragListener(this);
+
+		// Pan to see all markers in view.
+		// Cannot zoom to bounds until the map has a size.
+		final View mapView = getSupportFragmentManager().findFragmentById(R.id.map1).getView();
+		if (mapView.getViewTreeObserver().isAlive()) {
+			mapView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+				@SuppressLint("NewApi")
+				// We check which build version we are using.
+				@Override
+				public void onGlobalLayout() {
+					LatLngBounds bounds = new LatLngBounds.Builder().include(emiratesLocation).include(currentLocation).build();
+					// if (Build.VERSION.SDK_INT <
+					// Build.VERSION_CODES.JELLY_BEAN) {
+					// mapView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+					// } else {
+					// mapView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+					// }
+					mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
+				}
+			});
+		}
 	}
+
+	private OnClickListener clickListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+
+			default:
+				break;
+			}
+		}
+	};
 
 	private static final class LatLonPoint extends GeoPoint {
 		public LatLonPoint(double latitude, double longitude) {
@@ -124,19 +164,20 @@ public class EmiratesExpressGoogleMapActivity extends MapActivity implements OnC
 	}
 
 	@Override
-	protected void onPause() {
-
-		overridePendingTransition(R.anim.hold, R.anim.push_out_from_top);
-		super.onPause();
-	}
-
-	@Override
 	protected void onDestroy() {
+		CommonConstants.LATITUDE = 0.0;
+		CommonConstants.LONGITUDE = 0.0;
 		Utilities.unbindDrawables(findViewById(R.id.location_activity));
 		System.gc();
 		super.onDestroy();
 	}
 
+	@Override
+	public boolean onMarkerClick(Marker marker) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	@Override
 	public void onClick(View v) {
 		int id = v.getId();

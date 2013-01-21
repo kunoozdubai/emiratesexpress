@@ -13,6 +13,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.emiratesexpress.R;
 import com.emiratesexpress.common.Utilities;
@@ -42,6 +43,9 @@ public class EconomicNewsDialog extends Dialog implements View.OnClickListener, 
 		ImageView imageView = (ImageView) economicNewsView.findViewById(R.id.backgourndImg);
 		imageView.setBackgroundDrawable(Utilities.imageMap.get("background"));
 
+		TextView title = (TextView) economicNewsView.findViewById(R.id.titleTxt);
+		title.setText(context.getString(R.string.news_screen_title));
+		
 		Button button = (Button) economicNewsView.findViewById(R.id.backBtn);
 		button.setOnClickListener(this);
 		
